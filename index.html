@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruta Viva </title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  
+  <main>
+
+            <button class="botao_menu">
+               <img src="mascote_maracuja/mascote_lara.png" alt="Abrir menu">
+            </button>
+
+      <aside class="barra_lateral">
+
+            <button class="fechar_menu">
+               <img src="imagens/fechar_menu.png" alt="Fechar menu">
+            </button>
+
+
+           <nav class="menu_lateral">
+           <img
+                 src="mascote_maracuja/fundo_lateral.png"
+                          alt="fundo-lateral"
+                 class="fundo_menu">
+               <ul>
+                     <li><a href="#">🏠Inicio</a></li>
+                     <li><a href="#">🍹Receitas</a></li>
+                     <li><a href="#">💡dicas</a></li>
+                     <li><a href="#">ℹ️sobre</a></li>
+               </ul>
+            </nav>
+           
+       </aside>
+
+      <aside class="botoes_frutas2d">
+
+
+            <div class="botoes_frutas"> <!--mudar as imagem para class igual para todas as frutas 
+                mudar todas as id para src e modificar e apagar os tag botoes  dos
+                 botoes-->
+
+                         <button class="botao_fruta" data-fruta="abacaxi">
+                            <img src="abacaxi/botao_abacaxi.png" alt="abacaxi">
+                         </button>   
+                          <button class="botao_fruta" data-fruta="kiwi">
+                            <img src="kiwi/botao_kiwi.png" alt="kiwi">
+                          </button>
+                          <button class="botao_fruta" data-fruta="maçã">
+                            <img src="maçã/botao_maça.png" alt="maçã">
+                          </button>
+                          <button class="botao_fruta" data-fruta="maracuja">
+                            <img src="maracujá/botao_maracuja.png" alt="maracuja">
+                          </button>
+                          <button class="botao_fruta" data-fruta="manga">
+                            <img src="manga/imagens/botao_manga.png" alt="manga">
+                          </button>
+                          <button class="botao_fruta" data-fruta="melancia">
+                            <img src="melância/imagens/botaomelancia.png" alt="melancia">
+                          </button>
+                          <button class="botao_fruta" data-fruta="uva">
+                            <img src="uvas/botao_uva.png" alt="uva">
+                          </button>
+           </div>
+          
+       </aside>
+           <!-- texto do topo da pagina -->
+        <header class="cabecalho">
+
+            <div class="identidade">
+                 <h1>Fruta viva</h1>
+                 <p>Sabor que vem da natureza</p>
+            </div>
+             <!--preciso lembrar de colocar barra de pesquisa aqui -->
+            <div class="area_pesquisa">
+                <label for="pesquisa_fruta">pesquisar fruta</label>
+                <input 
+                type="search"
+                id="pesquisa_fruta"
+                placeholder="Digite o nome de uma fruta">
+            </div> 
+        </header>
+
+          <!-- barra de navegação -->
+          <section class="fruta_destaque">
+
+            <div class="conteudo_destaque">
+                 <h2 id="titulo_fruta">
+                      Descubra o mundo das <span>frutas</span>
+                 </h2>
+                     <p id="descricao_fruta">
+                      conheça curiosidades, receitas e beneficios de cada fruta.
+                     </p>
+                <button id="btn_explorar">
+                   explorar frutas
+                </button>
+            </div>
+
+          </section>
+
+        <section class="cards">
+
+            <article class="card">
+                <h3> 🌍 Origem</h3>
+                 <p id="texto_origem">
+                  Originário da América do Sul, o maracujá já era cultivado pelos povos indígenas.
+                
+                 </p>
+            </article>
+            
+            <article class="card">
+                <h3>💡 curiosidade</h3>
+                <p id="texto_curiosidade">
+                   Algumas substâncias presentes nas folhas do maracujá são usadas em chás.
+                </p>
+            </article>
+
+             
+            <article class="card">
+                <h3>💚 Beneficios</h3>   
+                  <p id="texto_beneficios">
+                    O maracujá possui vitamina C, fibras e antioxidantes.
+                  </p>
+            </article>
+
+            <article class="card">
+                <h3>🍹 Receitas</h3>
+                 <p id="texto_receitas">
+                    pode ser utilizado em sucos, bolos, mousses, geleia e molhos.
+                 </p>
+            </article>
+                 
+        </section>
+        
+        <section class="painel_mascote">
+        
+             <img class="mascote" src="mascote_maracuja/mascote_maraculivia.png">
+
+        </section>  
+     
+         <footer class="rodape"> 
+            <h3>🌿 Fruta Viva</h3>
+              <p>
+                 Este projeto foi idealizado e desenvolvido por Edson Rodrigues como parte da sua jornada de aprendizado em desenvolvimento web.
+              </p>
+              <p>
+                Cada página, cada fruta e cada detalhe foram construídos passo a passo, com o apoio da Iris (ChatGPT/OpenAI), transformando teoria em prática e conhecimento em experiência.
+              </p> 
+          </footer>
+
+    </main>
+
+</body>
+</html>
+

@@ -1,0 +1,208 @@
+/* ==========================
+   RESET
+========================== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* ==========================
+   BODY
+========================== */
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f5f9ed;
+    color: #24351f;
+}
+/* ==========================
+   MAIN
+========================== */
+main {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ==========================
+   MENU LATERAL
+========================== */
+.menu_lateral {
+    position: fixed;
+    width: 260px;
+    height: 100vh;
+    overflow: ;
+
+    transform: translateX(0%);
+    transition: transform 0.3s ease;
+
+    z-index: 20;
+}
+
+/* ==========================
+   BOTÃO MENU
+========================== */
+.botao_menu {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    cursor: pointer;
+    z-index: 30;
+}
+
+.botao_menu img {
+    width: 125px;
+    height: 180px;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+/* ==========================
+   BOTÕES DAS FRUTAS
+========================== */
+.botoes_frutas {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+
+    margin-top: 30px;
+}
+    .botao_fruta {
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: transform .3s ease;
+
+}
+.botao_fruta img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+}
+.botao_fruta img{
+
+    width: 100%;
+
+    display: block;
+
+    transition: transform .3s ease;
+
+}
+.botao_fruta:hover{
+
+    transform: scale(1.05);
+
+}
+
+
+/* ==========================
+   CABEÇALHO
+========================== */
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 40px;
+}
+.identidade h1{
+    font-size: 2.5rem;
+    color: #2e7d32;
+    margin-bottom: 5px;
+}
+
+.identidade p{
+    font-size: 1rem;
+    color: #5f7d5f;
+}
+input{
+    width: 280px;
+    padding: 10px 15px;
+
+    border: 2px solid #7cb342;
+    border-radius: 10px;
+
+    font-size: 1rem;
+}
+
+/* ==========================
+   FRUTA DESTAQUE
+========================== */
+.fruta_destaque{
+    min-height: 500px;
+    padding: 40px;
+       display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+/* ==========================
+   CARDS
+========================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+
+    padding: 40px;
+}
+
+.card {
+    padding: 20px;
+
+    background-color: white;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================
+   PAINEL DO MASCOTE
+========================== */
+.painel_mascote {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    width: 280px;
+    z-index: 10;
+}
+
+.mascote {
+    width: 100%;
+    height: auto;
+}
+
+/* ==========================
+   RODAPÉ
+========================== */
+.rodape {
+    padding: 30px 40px;
+
+    text-align: center;
+
+    background-color: #2e7d32;
+    color: white;
+}
+
+.rodape h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.rodape p {
+    margin-top: 5px;
+}
