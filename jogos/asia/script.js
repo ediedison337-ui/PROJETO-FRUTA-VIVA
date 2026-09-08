@@ -4,7 +4,7 @@
 const CONFIG_JOGO = {
     totalPecas: 9,
     tempoAnimacaoTrocaMs: 300,
-    tempoLimiteSegundos: 15
+    tempoLimiteSegundos: 30
 };
 
 
