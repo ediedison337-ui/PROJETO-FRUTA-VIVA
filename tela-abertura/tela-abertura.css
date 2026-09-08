@@ -1,0 +1,199 @@
+/* Reset básico e variáveis de estilo */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', sans-serif, system-ui;
+    background: linear-gradient(135deg, #E0F2F1 0%, #E8F5E9 50%, #FFFDE7 100%);
+    color: #2E4D2C;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 16px;
+}
+
+/* Container principal com prioridade mobile mas responsivo */
+.welcome-container {
+    width: 100%;
+    max-width: 480px;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F9FBE7 100%);
+    border-radius: 32px;
+    box-shadow: 0 16px 40px rgba(56, 142, 60, 0.15), 0 4px 12px rgba(0,0,0,0.05);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 4px solid #A5D6A7;
+}
+
+/* Elementos decorativos animados */
+.nature-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.leaf-1 {
+    top: 15px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    background: #81C784;
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(-30deg);
+    opacity: 0.6;
+    animation: floatLeaf 4s ease-in-out infinite alternate;
+}
+
+.leaf-2 {
+    top: 40px;
+    right: 25px;
+    width: 25px;
+    height: 25px;
+    background: #AED581;
+    border-radius: 0 50% 50% 50%;
+    transform: rotate(45deg);
+    opacity: 0.6;
+    animation: floatLeaf 5s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatLeaf {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-8px) rotate(15deg); }
+}
+
+/* Título Principal */
+.header-section {
+    z-index: 2;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.app-title {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: #2E7D32;
+    text-shadow: 3px 3px 0px #C8E6C9, 5px 5px 0px rgba(46, 125, 50, 0.2);
+    letter-spacing: 1px;
+    animation: bounceTitle 2s infinite;
+}
+
+@keyframes bounceTitle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Seção da Mascote */
+.mascot-section {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 0;
+}
+
+.mascot-glow {
+    position: absolute;
+    width: 170px;
+    height: 170px;
+    background: radial-gradient(circle, rgba(255,235,59,0.5) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+.mascot-img {
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));
+    animation: floatMascot 3s ease-in-out infinite alternate;
+    cursor: pointer;
+}
+@keyframes floatMascot {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-6px) scale(1.02); }
+}
+
+/* Seção de Texto e Boas-Vindas */
+.content-section {
+    z-index: 2;
+    text-align: center;
+    margin: 0 0 16px 0;
+    padding: 0 4px;
+}
+
+.welcome-subtitle {
+    font-size: 1.15rem;
+    color: #388E3C;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.welcome-description {
+    font-size: 0.9rem;
+    color: #4E342E;
+    line-height: 1.45;
+    background: rgba(255, 249, 196, 0.4);
+    padding: 10px 14px;
+    border-radius: 16px;
+    border: 2px dashed #FFEE58;
+}
+
+/* Seção de Ação (Botão) */
+.action-section {
+    z-index: 2;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.start-btn {
+    width: 100%;
+    max-width: 260px;
+    background: linear-gradient(135deg, #66BB6A 0%, #43A047 100%);
+    color: #FFFFFF;
+    font-size: 1.25rem;
+    font-weight: 800;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 6px 0 #2E7D32, 0 10px 20px rgba(67, 160, 71, 0.4);
+    transition: all 0.15s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.start-btn:hover {
+    background: linear-gradient(135deg, #81C784 0%, #4CAF50 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 0 #2E7D32, 0 12px 24px rgba(67, 160, 71, 0.5);
+}
+
+.start-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #2E7D32, 0 4px 8px rgba(67, 160, 71, 0.3);
+}
+
+.btn-clicked {
+    animation: shakeOnClick 0.3s ease;
+}
+
+@keyframes shakeOnClick {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    100% { transform: scale(1); }
+}

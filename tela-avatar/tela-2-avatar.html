@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fruta Viva - Crie seu personagem</title>
+  <link rel="stylesheet" href="tela-2-avatar.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>Crie seu personagem</h1>
+
+    <div class="input-group">
+      <label for="nome-usuario">Como você quer ser chamado?</label>
+      <input type="text" id="nome-usuario" placeholder="Digite seu nome ou apelido" maxlength="15">
+    </div>
+
+    <section class="preview-section">
+      <div class="avatar-preview-container">
+        <img id="avatar-preview" src="images/fem-01.png" alt="Pré-visualização do avatar">
+      </div>
+      <p id="nome-selecionado-label">Selecione seu avatar abaixo</p>
+    </section>
+
+    <section class="progresso-estrelas" aria-label="Desbloqueio de avatares">
+      <p class="total-estrelas">⭐ Suas estrelas: <strong id="total-estrelas">0</strong></p>
+      <p id="proximo-desbloqueio" aria-live="polite"></p>
+      <p class="regra-estrelas">
+        A cada 5 estrelas você ganha uma escolha de avatar. ⭐ Suas estrelas não são gastas!
+      </p>
+    </section>
+
+    <section class="secao-avatars">
+      <h2>Feminino</h2>
+      <div class="grid-avatars" id="grid-feminino">
+        <!-- Inseridos via JS -->
+      </div>
+    </section>
+
+    <section class="secao-avatars">
+      <h2>Masculino</h2>
+      <div class="grid-avatars" id="grid-masculino">
+        <!-- Inseridos via JS -->
+      </div>
+    </section>
+
+    <p id="mensagem-avatar" class="mensagem-avatar" role="status" aria-live="polite"></p>
+
+    <div class="acoes-container">
+      <button type="button" id="btn-salvar" class="btn">Salvar personagem</button>
+      <button type="button" id="btn-continuar" class="btn btn-primario">Continuar</button>
+    </div>
+  </main>
+
+  <script src="tela-2-avatar.js"></script>
+</body>
+
+</html>

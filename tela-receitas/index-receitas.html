@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fruta Viva - Receitas</title>
+
+    <link rel="stylesheet" href="style-receitas.css">
+</head>
+
+<body>
+
+    <!-- ============================= -->
+    <!-- TOPO DA PÁGINA                -->
+    <!-- ============================= -->
+
+    <header class="topo-receitas">
+
+        <a href="../tela-principal/principal.html" class="btn-voltar-receitas">
+            <span>Inicio</span>
+            
+        </a>
+
+        <div class="area-pesquisa">
+            <span class="icone-pesquisa">🔎</span>
+
+            <input type="text" id="pesquisa-receitas" class="pesquisa-receitas" placeholder="Qual receita você procura?"
+                autocomplete="off">
+        </div>
+
+        <div class="area-avatar">
+            <img id="avatar-receitas" class="avatar-receitas" src="" alt="Avatar escolhido">
+        </div>
+
+    </header>
+
+
+    <!-- ============================= -->
+    <!-- CONTEÚDO PRINCIPAL            -->
+    <!-- ============================= -->
+
+    <main class="conteudo-receitas">
+
+        <section class="apresentacao">
+
+            <h1>
+                Receitas do Fruta Viva
+            </h1>
+
+            <p>
+                Escolha uma fruta e descubra doces,
+                sucos e receitas deliciosas.
+            </p>
+
+        </section>
+
+
+        <!--
+            O JavaScript vai criar aqui
+            os 7 blocos das frutas.
+        -->
+
+        <section id="grade-frutas" class="grade-frutas"></section>
+
+
+        <!-- mensagem da pesquisa -->
+
+        <div id="nenhuma-receita" class="nenhuma-receita escondido">
+            🍓 Nenhuma receita encontrada.
+        </div>
+
+    </main>
+
+
+    <!-- ============================= -->
+    <!-- MODAL DA RECEITA              -->
+    <!-- ============================= -->
+
+    <div id="modal-receita" class="modal-receita">
+
+        <div class="modal-conteudo">
+
+            <button id="fechar-modal" class="fechar-modal" type="button" aria-label="Fechar">
+                ×
+            </button>
+
+
+            <div class="modal-imagem-area">
+
+                <img id="modal-imagem" src="" alt="">
+
+            </div>
+
+
+            <div class="modal-texto">
+
+                <div id="modal-tipo" class="modal-tipo"></div>
+
+                <h2 id="modal-titulo"></h2>
+
+
+                <div class="parte-receita">
+
+                    <h3>
+                        🥣 Ingredientes
+                    </h3>
+
+                    <p id="modal-ingredientes"></p>
+
+                </div>
+
+
+                <div class="parte-receita">
+
+                    <h3>
+                        👩‍🍳 Modo de preparo
+                    </h3>
+
+                    <p id="modal-preparo"></p>
+
+                </div>
+
+
+                <div class="aviso-adulto">
+
+                    🔥 Se a receita usar fogo, forno,
+                    faca ou liquidificador, peça ajuda
+                    de um adulto.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script-receitas.js"></script>
+
+</body>
+
+</html>

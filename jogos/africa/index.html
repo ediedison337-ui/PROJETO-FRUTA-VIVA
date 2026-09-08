@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Fruta Viva — África | Corrida da Melancia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="start-screen" class="screen start-screen">
+      <div class="card">
+        <span class="continent-badge">ÁFRICA 🌍</span>
+        <div class="hero-fruit" aria-hidden="true">🍉</div>
+        <h1>Corrida da Melancia</h1>
+        <p>
+          Ajude a melancia a atravessar a savana.
+          <strong>Pule os obstáculos</strong> e pegue <strong>7 gotas de água</strong>.
+        </p>
+        <div class="how-to">
+          <span>📱 Toque na tela para pular</span>
+          <span>⌨️ Espaço ou ↑ no teclado</span>
+        </div>
+        <button id="btn-start" class="primary-btn" type="button">Começar aventura</button>
+      </div>
+    </section>
+
+    <section id="game-screen" class="screen hidden" aria-label="Jogo Corrida da Melancia">
+      <header class="game-header">
+        <div>
+          <small>África 🌍</small>
+          <h2>Corrida da Melancia 🍉</h2>
+        </div>
+        <button id="btn-reset" class="small-btn" type="button">↻ Reiniciar</button>
+      </header>
+
+      <div class="progress-panel">
+        <div class="progress-copy">
+          <span>Hidratação</span>
+          <strong id="progress-text">0 / 7 💧</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <div id="game-area" class="game-area" tabindex="0" aria-label="Área do jogo. Toque ou pressione espaço para pular.">
+        <div class="sun" aria-hidden="true">☀️</div>
+        <div class="cloud cloud-1" aria-hidden="true">☁️</div>
+        <div class="cloud cloud-2" aria-hidden="true">☁️</div>
+        <div class="distant-tree tree-1" aria-hidden="true">🌳</div>
+        <div class="distant-tree tree-2" aria-hidden="true">🌴</div>
+
+        <div id="message" class="game-message" aria-live="polite">Pegue as gotas! 💧</div>
+
+        <div id="player" class="player" aria-hidden="true">
+          <span class="fruit">🍉</span>
+          <span class="shadow"></span>
+        </div>
+
+        <div class="ground-line" aria-hidden="true"></div>
+      </div>
+
+      <p class="tip">Toque em qualquer lugar da área para pular.</p>
+      <div id="aria-announcer" class="sr-only" aria-live="assertive"></div>
+    </section>
+
+    <section id="victory-screen" class="screen victory-screen hidden">
+      <div class="card victory-card">
+        <div class="celebration" aria-hidden="true">💧 ⭐ 🍉 ⭐ 💧</div>
+        <h1>Melancia hidratada!</h1>
+        <p>Você atravessou a savana e coletou todas as gotas.</p>
+        <div class="big-fruit" aria-hidden="true">🍉</div>
+        <button id="btn-quiz" class="primary-btn" type="button">Responder Quiz</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

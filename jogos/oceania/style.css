@@ -1,0 +1,937 @@
+/* ========================================
+   1. Reset e Variáveis
+   ======================================== */
+:root {
+    --bg-ocean: linear-gradient(
+        180deg,
+        #0077b6 0%,
+        #00b4d8 50%,
+        #90e0ef 100%
+    );
+
+    --surface-color: rgba(255, 255, 255, 0.96);
+    --primary-color: #023e8a;
+    --accent-color: #ffb703;
+    --text-color: #03045e;
+
+    --card-back: #0077b6;
+    --card-back-border: #90e0ef;
+
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --radius-round: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background: var(--bg-ocean);
+    color: var(--text-color);
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow-x: hidden;
+
+    padding: 10px;
+}
+
+
+/* ========================================
+   2. Layout Geral
+   ======================================== */
+
+.app-container {
+    width: 100%;
+    max-width: 520px;
+
+    height: 95vh;
+    max-height: 850px;
+
+    background: #caf0f8;
+
+    border-radius: var(--radius-round);
+    box-shadow: var(--shadow-soft);
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: 4px solid #ade8f4;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    inset: 0;
+
+    background: inherit;
+
+    transition: opacity 0.3s ease;
+
+    min-height: 0;
+}
+
+.screen.hidden {
+    display: none;
+
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   3. Tela Inicial
+   ======================================== */
+
+#start-screen {
+    background: linear-gradient(
+        135deg,
+        #0077b6 0%,
+        #03045e 100%
+    );
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 10;
+}
+
+.start-card {
+    background: var(--surface-color);
+
+    padding: 24px 20px;
+
+    border-radius: var(--radius-round);
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+    max-width: 380px;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.oceania-badge {
+    background: #ade8f4;
+    color: var(--primary-color);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+
+    padding: 4px 12px;
+
+    border-radius: 12px;
+
+    letter-spacing: 1px;
+}
+
+.start-card h1 {
+    font-size: 1.4rem;
+
+    color: var(--text-color);
+}
+
+.mission-desc {
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    color: #0077b6;
+}
+
+.preview-showcase {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 1.5rem;
+
+    background: #f1faee;
+
+    padding: 12px;
+
+    border-radius: 16px;
+    border: 2px dashed #90e0ef;
+
+    width: 100%;
+}
+
+.preview-avatars {
+    display: flex;
+
+    gap: 8px;
+
+    align-items: center;
+}
+
+.preview-avatars img {
+    width: 32px;
+    height: 32px;
+
+    object-fit: contain;
+}
+
+.primary-btn {
+    background: var(--accent-color);
+
+    color: #000;
+
+    border: none;
+
+    padding: 14px 28px;
+
+    border-radius: 20px;
+
+    font-size: 1.05rem;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px rgba(255, 183, 3, 0.4);
+
+    transition: transform 0.1s ease;
+
+    width: 100%;
+}
+
+.primary-btn:active {
+    transform: scale(0.96);
+}
+
+
+/* ========================================
+   4. HUD
+   ======================================== */
+
+.game-header {
+    background: var(--surface-color);
+
+    padding: 10px 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 2px solid #ade8f4;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    z-index: 5;
+}
+
+.hud-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.hud-icon {
+    font-size: 1.6rem;
+}
+
+.hud-info h2 {
+    font-size: 0.95rem;
+
+    color: var(--text-color);
+}
+
+.hud-info p {
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    color: #0077b6;
+}
+
+.control-btn {
+    background: #f1faee;
+
+    border: 2px solid #90e0ef;
+
+    padding: 6px 12px;
+
+    border-radius: 12px;
+
+    font-weight: 800;
+    font-size: 0.8rem;
+
+    color: var(--text-color);
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.1s;
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+
+/* ========================================
+   5. Progresso
+   ======================================== */
+
+.progress-hud {
+    background: rgba(255, 255, 255, 0.85);
+
+    padding: 8px 16px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    border-bottom: 2px solid #ade8f4;
+
+    z-index: 5;
+}
+
+.progress-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    color: var(--text-color);
+}
+
+.shell-container {
+    display: flex;
+
+    gap: 4px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+
+.shell-item {
+    font-size: 1rem;
+
+    opacity: 0.3;
+
+    filter: grayscale(100%);
+
+    transition:
+        opacity 0.3s,
+        filter 0.3s,
+        transform 0.3s;
+}
+
+.shell-item.active {
+    opacity: 1;
+
+    filter: none;
+
+    transform: scale(1.15);
+}
+
+
+/* ========================================
+   6. Cenário Oceania
+   ======================================== */
+
+.game-area {
+    flex: 1;
+
+    min-height: 0;
+
+    position: relative;
+
+    background: linear-gradient(
+        180deg,
+        #ade8f4 0%,
+        #90e0ef 100%
+    );
+
+    display: flex;
+
+    justify-content: center;
+
+    /*
+       IMPORTANTE:
+       O tabuleiro começa no topo.
+
+       Isso evita que as primeiras cartas
+       fiquem escondidas em celulares baixos.
+    */
+    align-items: flex-start;
+
+    padding: 10px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Elementos decorativos sutis */
+.game-area::before {
+    content: '🌊 🏝️ ⭐ 🐚 🌴';
+
+    position: absolute;
+
+    bottom: 4px;
+
+    width: 100%;
+
+    text-align: center;
+
+    font-size: 1.1rem;
+
+    opacity: 0.2;
+
+    pointer-events: none;
+}
+
+
+/* ========================================
+   7. Tabuleiro
+   ======================================== */
+
+.memory-board {
+    display: grid;
+
+    /*
+       Celular:
+       3 colunas x 6 linhas
+    */
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+
+    width: 100%;
+    max-width: 420px;
+
+    /*
+       Centraliza horizontalmente,
+       mas não verticalmente.
+    */
+    margin: 0 auto;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* ========================================
+   8. Cartas
+   ======================================== */
+
+.carta {
+    background: transparent;
+
+    border: none;
+
+    aspect-ratio: 3 / 4;
+
+    perspective: 1000px;
+
+    cursor: pointer;
+
+    padding: 0;
+
+    min-width: 0;
+}
+
+.carta-interna {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+
+    transition: transform 0.3s ease;
+
+    transform-style: preserve-3d;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+
+    border-radius: 12px;
+}
+
+
+/* ========================================
+   9. Flip
+   ======================================== */
+
+.carta.virada .carta-interna,
+.carta.encontrada .carta-interna {
+    transform: rotateY(180deg);
+}
+
+.carta-frente,
+.carta-verso {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 4px;
+}
+
+/*
+   Esta é a face FECHADA da carta.
+*/
+.carta-verso {
+    background: linear-gradient(
+        135deg,
+        var(--card-back) 0%,
+        #03045e 100%
+    );
+
+    color: white;
+
+    border: 2px solid var(--card-back-border);
+
+    font-size: 1.8rem;
+}
+
+/*
+   Esta é a face REVELADA da carta.
+*/
+.carta-frente {
+    background: var(--surface-color);
+
+    color: var(--text-color);
+
+    transform: rotateY(180deg);
+
+    border: 2px solid #0077b6;
+
+    gap: 2px;
+}
+
+.carta-frente .emoji-conteudo {
+    font-size: 2.2rem;
+}
+
+/*
+   Mantém MaracuLívia e Laranjinha
+   sem cortar nem deformar.
+*/
+.carta-frente img {
+    width: 50px;
+    height: 50px;
+
+    max-width: 75%;
+    max-height: 65%;
+
+    object-fit: contain;
+}
+
+.carta-frente .nome-conteudo {
+    font-size: 0.65rem;
+    font-weight: 800;
+
+    color: var(--primary-color);
+
+    text-transform: uppercase;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    max-width: 100%;
+}
+
+
+/* ========================================
+   10. Par Encontrado
+   ======================================== */
+
+.carta.encontrada .carta-frente {
+    border-color: #2a9d8f;
+
+    background: #e9f5f5;
+
+    box-shadow: 0 0 10px rgba(42, 157, 143, 0.4);
+}
+
+
+/* ========================================
+   11. Vitória
+   ======================================== */
+
+.victory-modal {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    backdrop-filter: blur(4px);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 30;
+
+    padding: 20px;
+}
+
+.victory-modal.hidden {
+    display: none;
+}
+
+.victory-card {
+    background: var(--surface-color);
+
+    padding: 26px 20px;
+
+    border-radius: var(--radius-round);
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 14px;
+
+    width: 100%;
+    max-width: 360px;
+
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+
+    animation: popIn 0.4s
+        cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.victory-avatars {
+    display: flex;
+
+    gap: 12px;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.victory-avatars img {
+    width: 55px;
+    height: 55px;
+
+    object-fit: contain;
+
+    animation: bounceAvatar 1.5s infinite ease-in-out;
+}
+
+.victory-card h2 {
+    font-size: 1.35rem;
+
+    color: var(--text-color);
+}
+
+.victory-card p {
+    font-size: 0.95rem;
+    font-weight: 700;
+
+    color: #0077b6;
+}
+
+
+/* ========================================
+   12. Animações
+   ======================================== */
+
+@keyframes popIn {
+
+    0% {
+        transform: scale(0.7);
+
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes bounceAvatar {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-6px);
+    }
+}
+
+
+/* ========================================
+   Foco de teclado
+   ======================================== */
+
+.carta:focus-visible,
+.primary-btn:focus-visible,
+.control-btn:focus-visible {
+    outline: 3px solid #ffb703;
+
+    outline-offset: 3px;
+}
+
+
+/* ========================================
+   13. Responsividade
+   ======================================== */
+
+@media (min-width: 600px) {
+
+    .app-container {
+        max-width: 600px;
+
+        height: 90vh;
+    }
+
+    .memory-board {
+
+        /*
+           Tablet/Desktop:
+           6 colunas x 3 linhas
+        */
+        grid-template-columns: repeat(6, 1fr);
+
+        max-width: 520px;
+    }
+
+    .carta-frente img {
+        width: 58px;
+        height: 58px;
+    }
+
+    .carta-frente .emoji-conteudo {
+        font-size: 2.4rem;
+    }
+}
+
+
+/* ========================================
+   14. Reduced Motion
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+/* ========================================
+   OCEANIA — AJUSTE CELULAR
+   CABER TUDO SEM ROLAGEM
+   ======================================== */
+
+@media (max-width: 599px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        min-height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        padding: 0;
+        align-items: stretch;
+    }
+
+    /* Tela ocupa exatamente o celular */
+    .app-container {
+        width: 100%;
+        height: 100dvh;
+        max-height: none;
+        border-radius: 0;
+        border-width: 0;
+    }
+
+    /* Cabeçalho mais compacto */
+    .game-header {
+        padding: 6px 10px;
+        flex-shrink: 0;
+    }
+
+    .hud-info {
+        gap: 6px;
+    }
+
+    .hud-icon {
+        font-size: 1.25rem;
+    }
+
+    .hud-info h2 {
+        font-size: 0.82rem;
+    }
+
+    .hud-info p {
+        font-size: 0.65rem;
+    }
+
+    .control-btn {
+        padding: 5px 9px;
+        font-size: 0.72rem;
+        border-radius: 10px;
+    }
+
+    /* Progresso ocupa menos altura */
+    .progress-hud {
+        padding: 5px 10px;
+        gap: 2px;
+        flex-shrink: 0;
+    }
+
+    .progress-label {
+        font-size: 0.72rem;
+    }
+
+    .shell-container {
+        gap: 2px;
+    }
+
+    .shell-item {
+        font-size: 0.72rem;
+    }
+
+    /* Área restante pertence ao tabuleiro */
+    .game-area {
+        flex: 1;
+        min-height: 0;
+
+        padding: 6px 8px 8px;
+
+        overflow: hidden;
+
+        align-items: stretch;
+    }
+
+    /* 3 colunas x 6 linhas,
+       usando exatamente a altura disponível */
+    .memory-board {
+        width: 100%;
+        height: 100%;
+
+        max-width: 330px;
+        max-height: 100%;
+
+        margin: 0 auto;
+
+        display: grid;
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, minmax(0, 1fr));
+
+        gap: 5px;
+    }
+
+    /* No celular a altura vem do grid,
+       não do aspect-ratio */
+    .carta {
+        width: 100%;
+        height: 100%;
+
+        min-width: 0;
+        min-height: 0;
+
+        aspect-ratio: auto;
+    }
+
+    .carta-interna {
+        width: 100%;
+        height: 100%;
+    }
+
+    .carta-frente,
+    .carta-verso {
+        padding: 2px;
+        border-radius: 9px;
+    }
+
+    .carta-interna {
+        border-radius: 9px;
+    }
+
+    .carta-verso {
+        font-size: 1.35rem;
+    }
+
+    .carta-frente .emoji-conteudo {
+        font-size: 1.5rem;
+    }
+
+    .carta-frente img {
+        width: min(42px, 65%);
+        height: min(42px, 65%);
+    }
+
+    .carta-frente .nome-conteudo {
+        font-size: 0.52rem;
+    }
+
+    /* decoração não ocupa espaço */
+    .game-area::before {
+        font-size: 0.75rem;
+        bottom: 1px;
+    }
+}

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fruta Viva - Início</title>
+
+    <!-- Fonte infantil -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS da tela principal -->
+    <link rel="stylesheet" href="principal.css">
+</head>
+
+
+<body>
+
+    <main class="app-container">
+
+
+        <!-- =========================================
+             MENU LATERAL
+        ========================================== -->
+
+        <button class="botao_menu" aria-label="Abrir menu">
+            <img src="../assets/mascotes/mascote-lara.png" alt="Abrir menu">
+        </button>
+
+
+        <aside class="barra_lateral">
+
+            <button class="fechar_menu" aria-label="Fechar menu">
+                <img src="../assets/interface/fechar-menu.png" alt="Fechar menu">
+            </button>
+
+
+            <nav class="menu_lateral">
+
+
+
+                <ul>
+
+                    <li>
+                        <a href="principal.html">
+                            🏠 Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../tela-conhecer-frutas/conhecer-frutas.html">
+                            🍎 Frutas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../tela-receitas/index-receitas.html">
+                            🥤 Receitas
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="../tela-avatar/tela-2-avatar.html">
+                            👤 Meu Avatar
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- =========================================
+             CABEÇALHO
+        ========================================== -->
+
+        <header class="cabecalho">
+
+
+            <!-- IDENTIDADE -->
+
+            <div class="identidade">
+
+                <h1>Fruta Viva</h1>
+
+                <p>
+                    Sabor que vem da natureza
+                </p>
+
+            </div>
+
+
+
+            <!-- NOME + AVATAR -->
+
+            <div class="user-greeting-box">
+
+                <div class="greeting-text">
+
+                    <span id="saudacaoNome">
+                        Oi, Amiguinho! 👋
+                    </span>
+
+                </div>
+
+
+                <img id="avatarMini" src="" alt="Seu Avatar" class="avatar-mini">
+
+            </div>
+
+
+
+            <!-- PESQUISA -->
+
+            <div class="area_pesquisa">
+
+                <label for="pesquisa_fruta">
+                    Pesquisar fruta
+                </label>
+
+                <input type="search" id="pesquisa_fruta" placeholder="Digite o nome de uma fruta">
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================================
+             MARACULÍVIA
+        ========================================== -->
+
+        <section class="mascot-section">
+
+
+            <div class="mascot-bubble">
+
+                <p id="fala-maraculivia">
+                    “O que vamos descobrir hoje?”
+                </p>
+
+            </div>
+
+
+            <div class="painel_mascote">
+
+                <img class="mascote" src="../assets/mascotes/mascote-maraculivia.png" alt="Mascote Maraculívia">
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             CARDS PRINCIPAIS
+        ========================================== -->
+
+        <section id="cards-navegacao" class="cards-grid-app">
+
+
+            <!-- CONHECER FRUTAS -->
+
+            <a href="../tela-conhecer-frutas/conhecer-frutas.html" class="app-card card-frutas">
+
+                <span class="card-icon">
+                    🍎
+                </span>
+
+                <h2>
+                    Conhecer Frutas
+                </h2>
+
+            </a>
+
+
+
+            <!-- RECEITAS -->
+
+            <a href="../tela-receitas/index-receitas.html" class="app-card card-receitas">
+
+                <span class="card-icon">
+                    🥤
+                </span>
+
+                <h2>
+                    Receitas e Sucos
+                </h2>
+
+            </a>
+
+
+
+            <!-- AVENTURAS -->
+
+            <a href="../aventuras-pelo-mundo/index.html" class="app-card card-aventuras">
+
+                <span class="card-icon">🌎</span>
+                <h2>Aventuras pelo Mundo</h2>
+
+            </a>
+
+
+            <!-- JOGOS -->
+
+            <button type="button" class="app-card card-jogos" onclick="alert('Joguinhos em breve! 🎮')">
+
+                <span class="card-icon">
+                    🎮
+                </span>
+
+                <h2>
+                    Joguinhos
+                </h2>
+
+                <span class="mascot-tag">
+                    Laranjinha 🍊
+                </span>
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             FRUTA DO DIA
+        ========================================== -->
+
+        <!-- =========================================
+     FRUTA EM DESTAQUE
+========================================== -->
+
+        <section class="fruit-of-the-day">
+
+            <div class="fod-header">
+
+                <span class="fod-badge">
+                    ✨ Fruta em destaque
+                </span>
+
+            </div>
+
+            <div class="fod-content">
+
+                <h3 id="fruta-destaque-nome">
+                    Maracujá 💛
+                </h3>
+
+                <p id="fruta-destaque-texto">
+                    “Você sabia que existem variedades de maracujá
+                    com casca amarela, roxa e alaranjada?”
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             BOTÕES DAS FRUTAS
+        ========================================== -->
+
+        <section id="secao-frutas" class="botoes_frutas2d">
+
+            <div class="botoes_frutas">
+
+
+                <!-- ABACAXI -->
+
+                <button class="botao_fruta" data-fruta="abacaxi">
+
+                    <img src="../assets/frutas/abacaxi/botao-abacaxi.png" alt="Abacaxi">
+
+                </button>
+
+
+
+                <!-- KIWI -->
+
+                <button class="botao_fruta" data-fruta="kiwi">
+
+                    <img src="../assets/frutas/kiwi/botao-kiwi.png" alt="Kiwi">
+
+                </button>
+
+
+
+                <!-- MAÇÃ -->
+
+                <button class="botao_fruta" data-fruta="maca">
+
+                    <img src="../assets/frutas/maca/botao-maca.png" alt="Maçã">
+
+                </button>
+
+
+
+                <!-- MARACUJÁ -->
+
+                <button class="botao_fruta" data-fruta="maracuja">
+
+                    <img src="../assets/frutas/maracuja/botao-maracuja.png" alt="Maracujá">
+
+                </button>
+
+
+
+                <!-- MANGA -->
+
+                <button class="botao_fruta" data-fruta="manga">
+
+                    <img src="../assets/frutas/manga/botao-manga.png" alt="Manga">
+
+                </button>
+
+
+
+                <!-- MELANCIA -->
+
+                <button class="botao_fruta" data-fruta="melancia">
+
+                    <img src="../assets/frutas/melancia/botao-melancia.png" alt="Melancia">
+
+                </button>
+
+
+
+                <!-- UVA -->
+
+                <button class="botao_fruta" data-fruta="uva">
+
+                    <img src="../assets/frutas/uva/botao-uva.png" alt="Uva">
+
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             CONTEÚDO DA FRUTA
+        ========================================== -->
+
+        <section id="secao-conteudo" class="cards">
+
+
+            <!-- ORIGEM -->
+
+            <article class="card">
+
+                <h3>
+                    🌍 Origem
+                </h3>
+
+                <p id="texto_origem">
+                    Originário da América do Sul,
+                    o maracujá já era cultivado
+                    pelos povos indígenas.
+                </p>
+
+            </article>
+
+
+
+            <!-- CURIOSIDADE -->
+
+            <article class="card">
+
+                <h3>
+                    💡 Curiosidade
+                </h3>
+
+                <p id="texto_curiosidade">
+                    Algumas substâncias presentes
+                    nas folhas do maracujá são
+                    usadas em chás.
+                </p>
+
+            </article>
+
+
+
+            <!-- BENEFÍCIOS -->
+
+            <article class="card">
+
+                <h3>
+                    💚 Benefícios
+                </h3>
+
+                <p id="texto_beneficios">
+                    O maracujá possui vitamina C,
+                    fibras e antioxidantes.
+                </p>
+
+            </article>
+
+
+
+            <!-- RECEITAS -->
+
+            <article class="card">
+
+                <h3>
+                    🍹 Receitas
+                </h3>
+
+                <p id="texto_receitas">
+                    Pode ser utilizado em sucos,
+                    bolos, mousses, geleias
+                    e molhos.
+                </p>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- =========================================
+             RODAPÉ
+        ========================================== -->
+
+        <footer class="rodape">
+
+            <h3>
+                🌿 Fruta Viva
+            </h3>
+
+
+            <p>
+                Este projeto foi idealizado e desenvolvido
+                por Edson Rodrigues como parte da sua
+                jornada de aprendizado em desenvolvimento web.
+            </p>
+
+
+            <p>
+                Cada página, cada fruta e cada detalhe
+                foram construídos passo a passo,
+                com o apoio da Iris (ChatGPT/OpenAI),
+                transformando teoria em prática
+                e conhecimento em experiência.
+            </p>
+
+        </footer>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         NAVEGAÇÃO INFERIOR
+    ========================================== -->
+
+    <nav class="bottom-nav">
+
+
+        <!-- INÍCIO -->
+
+        <a href="principal.html" class="nav-item active">
+
+            <span class="nav-icon">
+                🏠
+            </span>
+
+            <span>
+                Início
+            </span>
+
+        </a>
+
+
+
+        <!-- FRUTAS -->
+
+        <a href="../tela-conhecer-frutas/conhecer-frutas.html" class="nav-item">
+
+            <span class="nav-icon">
+                🍎
+            </span>
+
+            <span>
+                Frutas
+            </span>
+
+        </a>
+
+
+
+        <!-- JOGOS -->
+
+        <a href="#" class="nav-item" onclick="alert('Joguinhos em breve! 🎮')">
+
+            <span class="nav-icon">
+                🎮
+            </span>
+
+            <span>
+                Jogos
+            </span>
+
+        </a>
+
+
+
+        <!-- AVATAR -->
+
+        <a href="../tela-avatar/tela-2-avatar.html" class="nav-item">
+
+            <span class="nav-icon">
+                👤
+            </span>
+
+            <span>
+                Meu Avatar
+            </span>
+
+        </a>
+
+
+    </nav>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="principal.js"></script>
+
+
+</body>
+
+</html>

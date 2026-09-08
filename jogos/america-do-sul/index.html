@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruta Viva - América do Sul</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="game-page">
+        <h1>América do Sul 🌎</h1>
+        <p class="subtitle">Maracujá 💛 — combine frutas iguais para somar pontos!</p>
+
+        <div id="suika-game-wrapper" class="suika-wrapper">
+            <div class="game-stats-bar">
+                <div class="tempo-jogo">
+                    ⏱️ Tempo:
+                    <span id="tempo-val">45</span>s
+                </div>
+                <span>
+                    Pontos:
+                    <strong id="score-val">0</strong>
+                    /
+                    <span id="meta-val">300</span>
+                </span>
+
+                <div class="progress-bar-container">
+                    <div id="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <div class="suika-board-container">
+                <canvas id="suikaCanvas" width="320" height="420"></canvas>
+
+                <div class="next-fruit-preview">
+                    <span>Próxima:</span>
+                    <span id="next-fruit-icon">🍓</span>
+                </div>
+            </div>
+
+            <div id="victory-box" class="victory-box hidden">
+                <strong>🎉 Desafio concluído!</strong>
+                <span>Você conseguiu formar a Melancia! 🍉</span>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Fruta Viva — Bônus | Festa das Frutas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section id="start-screen" class="screen start-screen">
+      <div class="card">
+        <span class="bonus-badge">FASE BÔNUS ⭐</span>
+        <div class="hero-fruits" aria-hidden="true">🍎 🍇 🍍</div>
+        <h1>Festa das Frutas</h1>
+        <p>
+          Troque duas frutas de lugar e forme grupos de
+          <strong>3 frutas iguais</strong>.
+        </p>
+
+        <div class="rules">
+          <span>🍓 3 iguais = <strong>10 pontos</strong></span>
+          <span>⭐ Meta = <strong>100 pontos</strong></span>
+        </div>
+
+        <button id="btn-start" class="primary-btn" type="button">
+          Começar Bônus
+        </button>
+      </div>
+    </section>
+
+    <section id="game-screen" class="screen hidden">
+      <header class="game-header">
+        <div>
+          <small>FASE BÔNUS ⭐</small>
+          <h2>Festa das Frutas</h2>
+        </div>
+        <button id="btn-reset" class="small-btn" type="button">↻ Reiniciar</button>
+      </header>
+
+      <div class="score-panel">
+        <div class="score-top">
+          <span>Pontuação</span>
+          <strong id="score-text">0 / 100 ⭐</strong>
+        </div>
+
+        <div class="score-track" aria-hidden="true">
+          <div id="score-fill" class="score-fill"></div>
+        </div>
+      </div>
+
+      <div class="game-content">
+        <p id="message" class="message" aria-live="polite">
+          Toque em uma fruta e depois em outra ao lado.
+        </p>
+
+        <div id="board" class="board" aria-label="Tabuleiro de frutas"></div>
+
+        <div class="legend">
+          <span>🍎</span>
+          <span>🍇</span>
+          <span>🍍</span>
+          <span>🥭</span>
+          <span>🍉</span>
+          <span>🥝</span>
+        </div>
+      </div>
+
+      <div id="aria-announcer" class="sr-only" aria-live="assertive"></div>
+    </section>
+
+    <section id="victory-screen" class="screen victory-screen hidden">
+      <div class="card victory-card">
+        <div class="celebration" aria-hidden="true">🎉 ⭐ 🍍 🍉 🍇 ⭐ 🎉</div>
+        <h1>100 pontos!</h1>
+        <p>Você completou a Fase Bônus do Fruta Viva!</p>
+        <div class="hero-fruits big" aria-hidden="true">🍎 🍇 🍍</div>
+        <button id="btn-quiz" class="primary-btn" type="button">
+          Responder Quiz
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

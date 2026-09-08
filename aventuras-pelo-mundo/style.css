@@ -1,0 +1,607 @@
+/* Configurações Globais e Variáveis */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #70e1f5, #ffd194);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+/* ==========================================
+   BOTÃO VOLTAR - AVENTURAS
+========================================== */
+
+.btn-voltar-aventuras {
+    position: fixed;
+    top: 14px;
+    left: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 18px;
+
+    background: linear-gradient(
+        135deg,
+        #e8fbff,
+        #bff3ff
+    );
+
+    color: #075d78;
+
+    border: 3px solid #16b8d4;
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    box-shadow:
+        0 4px 0 #087d9b,
+        0 7px 14px rgba(0, 0, 0, 0.18);
+
+    z-index: 10000;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-voltar-aventuras span {
+    font-size: 21px;
+}
+
+.btn-voltar-aventuras:visited {
+    color: #075d78;
+}
+
+.btn-voltar-aventuras:hover {
+    transform: translateY(-2px);
+
+    background: linear-gradient(
+        135deg,
+        #ffffff,
+        #9cecff
+    );
+
+    color: #075d78;
+}
+
+.btn-voltar-aventuras:active {
+    transform: translateY(2px);
+
+    box-shadow:
+        0 2px 0 #087d9b,
+        0 4px 8px rgba(0, 0, 0, 0.15);
+}
+#game-container {
+    width: 100%;
+    max-width: 600px;
+
+    background-image: url("./imagens/fundo-mapa.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Cabeçalho */
+.contador-estrelas {
+    width: 100%;
+    text-align: center;
+
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-top: 20px;
+    margin-bottom: 12px;
+
+    color: #123;
+}
+#estrelas-visuais {
+    letter-spacing: 3px;
+}
+
+.status-box {
+    background: rgba(0, 0, 0, 0.15);
+    padding: 5px 12px;
+    border-radius: 15px;
+}
+
+/* Controle de Telas (Ativa / Oculta) */
+.screen {
+    display: none;
+    padding: 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* Mapa Múndi Provisório */
+#map-container {
+    width: 100%;
+    height: 250px;
+    background: #eef2f3;
+    border: 3px dashed #b2bec3;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+#map-board {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    background-color: #d1f2eb;
+    background-image: url("../aventuras-pelo-mundo/imagens/mapa-mundi.jpg");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Destinos no Mapa */
+.map-pin {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #ff4757;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.map-pin.visited {
+    background: #2ed573;
+    opacity: 0.6;
+}
+
+/* Avião Animado */
+#plane {
+    position: absolute;
+    font-size: 1.8rem;
+    transform: translate(-50%, -50%);
+    transition: all 1.5s ease-in-out;
+    z-index: 10;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Botões e Interações */
+.btn-primary {
+    background: #2ed573;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(46, 213, 115, 0.3);
+    transition: transform 0.1s, background 0.2s;
+}
+
+.btn-primary:active {
+    transform: scale(0.95);
+}
+
+.btn-primary:hover {
+    background: #26af5f;
+}
+
+/* Alternativas do Quiz */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.quiz-btn {
+    background: #f1f2f6;
+    border: 2px solid #dfe4ea;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.quiz-btn:hover {
+    background: #dfe4ea;
+}
+
+/* ==========================================
+   PERSONAGENS ABAIXO DO MAPA
+   ========================================== */
+
+.personagens-mapa {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+/* Jogador */
+.jogador-mapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#avatar-jogador {
+    width: 140px;
+    height: 160px;
+    object-fit: contain;
+
+    transform: translateX(115px);
+}
+
+/* Jogador + nome */
+.nome-escolhido {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo-jogador {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+#nome-jogador {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Área dos mascotes */
+.mascotes-mapa {
+    display: flex;
+    align-items: flex-end;
+    gap: 0px;
+
+    transform: translateX(-60px);
+}
+
+
+/* MaracuLívia */
+#maraculivia-mapa {
+    width: 160px;
+    height: 180px;
+    object-fit: contain;
+
+    transform: translateX(40px);
+}
+
+/* Laranjinha */
+#laranjinha-mapa {
+    width: 90px;
+    height: 115px;
+    object-fit: contain;
+}
+
+#maraculivia-mapa {
+    background-image: url("/aventuras-pelo-mundo/imagens/maraculivia.png")
+}
+
+#laranjinha-mapa {
+    background-image: url("/aventuras-pelo-mundo/imagens/laranjinha.png");
+}
+
+.video-container {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video-aventura {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-container.hidden {
+    display: none;
+}
+
+#game-frame-wrapper {
+    width: 100%;
+    max-width: 500px;
+}
+
+#game-frame {
+    width: 100%;
+    height: 620px;
+    border: none;
+    border-radius: 15px;
+    background: white;
+}
+
+#game-frame-wrapper.hidden {
+    display: none;
+}
+
+/* ==========================================
+   AJUSTE SOMENTE PARA CELULAR
+   ========================================== */
+
+
+
+@media (max-width: 600px) {
+
+    #game-container {
+        background-size: 100% 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+
+.personagens-mapa {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    gap: 5px;
+    padding-bottom: 30px;
+    margin-top: 5px;
+}
+
+/* tira o empurrão que usamos no PC */
+#avatar-jogador {
+    width: 115px;
+    height: 125px;
+    object-fit: contain;
+
+    transform: none;
+}
+
+/* mascotes */
+.mascotes-mapa {
+    display: flex;
+    align-items: flex-end;
+    gap: 0;
+
+    transform: translateX(0);
+    margin: 0;
+}
+
+/* MaracuLívia */
+#maraculivia-mapa {
+    width: 113px !important;
+    height: 125px !important;
+
+    transform: translateX(8px);
+}
+
+/* Laranjinha menor */
+#laranjinha-mapa {
+    width: 75px !important;
+    height: 90px !important;
+
+    transform: translateX(0);
+}
+
+/* Jogador + nome */
+.nome-escolhido {
+    position: absolute;
+
+    left: 50%;
+    bottom: 2px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-jogador {
+    font-size: 13px;
+}
+
+#nome-jogador {
+    font-size: 18px;
+}
+}/* ==========================================
+   MODAL DE RECOMPENSA / ESTRELAS
+   ========================================== */
+
+.modal-recompensa {
+    position: fixed;
+    inset: 0;
+    background: rgba(20, 16, 40, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 9999;
+    backdrop-filter: blur(3px);
+}
+
+.modal-recompensa.hidden {
+    display: none;
+}
+
+.modal-recompensa-box {
+    width: min(420px, 100%);
+    background: linear-gradient(180deg, #fff9d9 0%, #ffeeb0 100%);
+    border: 4px solid #f4c542;
+    border-radius: 24px;
+    box-shadow:
+        0 18px 40px rgba(0, 0, 0, 0.25),
+        inset 0 2px 0 rgba(255, 255, 255, 0.7);
+    padding: 26px 22px 22px;
+    text-align: center;
+    animation: aparecerModalRecompensa 0.25s ease;
+}
+
+.modal-estrelas {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 4px;
+}
+
+#modal-recompensa-titulo {
+    margin: 0 0 8px;
+    font-size: 1.7rem;
+    color: #5a3b00;
+}
+
+#modal-recompensa-texto {
+    margin: 0 0 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #6a4a00;
+    line-height: 1.4;
+}
+
+.btn-recompensa {
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #7b4dff 0%, #5b34d6 100%);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 12px 22px;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(91, 52, 214, 0.28);
+    transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.btn-recompensa:hover {
+    transform: translateY(-2px);
+}
+
+.btn-recompensa:active {
+    transform: scale(0.97);
+}
+/* ===================================
+configuracoes celular 
+===================================*/
+@media (max-width: 600px) {
+
+    #maraculivia-mapa {
+        width: 105px !important;
+        height: 130px !important;
+        object-fit: contain;
+        transform: translateX(0);
+    }
+
+    #laranjinha-mapa {
+        width: 70px !important;
+        height: 90px !important;
+        object-fit: contain;
+
+        transform: translateX(-30px);
+    }
+}
+
+@keyframes aparecerModalRecompensa {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 600px) {
+    .modal-recompensa-box {
+        padding: 22px 16px 18px;
+        border-radius: 20px;
+    }
+
+    .modal-estrelas {
+        font-size: 1.7rem;
+    }
+
+    #modal-recompensa-titulo {
+        font-size: 1.4rem;
+    }
+
+    #modal-recompensa-texto {
+        font-size: 0.95rem;
+    }
+
+    .btn-recompensa {
+        width: 100%;
+    }
+}
+/* ==========================================
+   BOTÃO VOLTAR - CELULAR
+========================================== */
+
+@media (max-width: 600px) {
+
+    .btn-voltar-aventuras {
+        position: fixed;
+
+        top: 8px;
+        left: 8px;
+
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+
+        padding: 7px 11px;
+
+        font-size: 12px;
+        font-weight: 700;
+
+        z-index: 99999;
+
+        max-width: 135px;
+    }
+
+    .btn-voltar-aventuras span {
+        font-size: 17px;
+    }
+}

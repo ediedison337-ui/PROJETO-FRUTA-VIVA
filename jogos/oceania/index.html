@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruta Viva - Ilhas da Memória (Oceania)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app-container">
+
+        <section id="start-screen" class="screen">
+            <div class="start-card">
+                <div class="oceania-badge">🌊 OCEANIA</div>
+                <h1>ILHAS DA MEMÓRIA</h1>
+                <p class="mission-desc">"Encontre os pares das frutas e dos amigos!"</p>
+                <div class="preview-showcase">
+                    <span>🍎</span><span>🍇</span><span>🍊</span><span>🍓</span><span>🍍</span><span>🍌</span><span>🥝</span>
+                    <div class="preview-avatars">
+                        <img src="imagens/maraculivia.png" alt="MaracuLívia Comemorando">
+                        <img src="imagens/laranjinha.png" alt="Laranjinha Comemorando">
+                    </div>
+                </div>
+                <button id="btn-start" class="primary-btn">COMEÇAR A AVENTURA</button>
+            </div>
+        </section>
+
+        <div id="game-screen" class="screen hidden">
+            <header class="game-header">
+                <div class="hud-info">
+                    <span class="hud-icon">🌊</span>
+                    <div>
+                        <h2>OCEANIA</h2>
+                        <p>Encontre todos os pares!</p>
+                    </div>
+                </div>
+                <button id="btn-reset" class="control-btn" title="Reiniciar">↻ Reiniciar</button>
+            </header>
+
+            <section class="progress-hud" aria-label="Progresso do Jogo">
+                <div class="progress-label">
+                    <span>Pares encontrados:</span>
+                    <span id="progress-text">0 / 9</span>
+                </div>
+                <div class="shell-container" id="shell-container">
+                </div>
+            </section>
+
+            <main class="game-area">
+                <div id="memory-board" class="memory-board" aria-label="Tabuleiro de Memória"></div>
+            </main>
+        </div>
+
+        <div id="victory-screen" class="victory-modal hidden">
+            <div class="victory-card">
+                <div class="victory-avatars">
+                    <img src="imagens/maraculivia.png" alt="MaracuLívia Comemorando">
+                    <img src="imagens/laranjinha.png" alt="Laranjinha Comemorando">
+                </div>
+                <h2>🎉 TODOS OS PARES ENCONTRADOS!</h2>
+                <p>Você encontrou os 9 pares!</p>
+                <button id="btn-quiz" class="primary-btn">RESPONDER QUIZ</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

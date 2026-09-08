@@ -1,0 +1,524 @@
+/* ========================================
+   1. Reset e Variáveis
+   ======================================== */
+:root {
+    --bg-sky: linear-gradient(180deg, #4ea8de 0%, #90e0ef 60%, #caf0f8 100%);
+    --surface-color: rgba(255, 255, 255, 0.95);
+    --primary-color: #2b9348;
+    --accent-color: #ff3333;
+    --text-color: #1b4332;
+    --text-light: #ffffff;
+    --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.12);
+    --radius-round: 24px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Nunito', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: var(--bg-sky);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 10px;
+}
+
+/* ========================================
+   2. Layout Geral
+   ======================================== */
+.app-container {
+    width: 100%;
+    max-width: 450px;
+    height: 92vh;
+    max-height: 800px;
+    background: #e8f5e9;
+    border-radius: var(--radius-round);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #b7e4c7;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    transition: opacity 0.3s ease;
+}
+
+.screen.hidden {
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* ========================================
+   3. Tela Inicial
+   ======================================== */
+#start-screen {
+    background: linear-gradient(135deg, #52b788 0%, #2d6a4f 100%);
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+    z-index: 10;
+}
+
+.start-card {
+    background: var(--surface-color);
+    padding: 30px 20px;
+    border-radius: var(--radius-round);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 360px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.fruit-showcase-large {
+    font-size: 4rem;
+    animation: bounceFruit 2s infinite ease-in-out;
+}
+
+@keyframes bounceFruit {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.region-badge {
+    background: #d8f3dc;
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 4px 12px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+}
+
+.start-card h1 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.mission-desc {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #40916c;
+}
+
+.demo-swipe-container {
+    width: 100px;
+    height: 80px;
+    position: relative;
+    background: #f1faee;
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #a3b18a;
+}
+
+.demo-apple {
+    font-size: 2.2rem;
+}
+
+.demo-finger-trail {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    background: #ffb703;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffb703;
+    animation: demoSwipe 2s infinite ease-in-out;
+}
+
+@keyframes demoSwipe {
+    0% { transform: translate(-30px, -20px); opacity: 0; }
+    30% { opacity: 1; }
+    70% { transform: translate(30px, 20px); opacity: 1; }
+    100% { transform: translate(40px, 25px); opacity: 0; }
+}
+
+.primary-btn {
+    background: #ffb703;
+    color: #000;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 20px;
+    font-size: 1.05rem;
+    font-weight: 900;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(255, 183, 3, 0.4);
+    transition: transform 0.1s ease;
+    width: 100%;
+}
+
+.primary-btn:active {
+    transform: scale(0.96);
+}
+
+/* ========================================
+   4. HUD
+   ======================================== */
+.game-header {
+    background: var(--surface-color);
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #d8f3dc;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    z-index: 5;
+}
+
+.hud-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hud-icon {
+    font-size: 1.8rem;
+}
+
+.hud-info h2 {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.hud-info p {
+    font-size: 0.75rem;
+    color: #52b788;
+    font-weight: 700;
+}
+
+.control-btn {
+    background: #f1faee;
+    border: 2px solid #a3b18a;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.control-btn:active {
+    transform: scale(0.95);
+}
+
+/* ========================================
+   5. Cesta / Progresso
+   ======================================== */
+.basket-hud {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    border-bottom: 2px solid #d8f3dc;
+    z-index: 5;
+}
+
+.basket-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+.basket-slots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.basket-slot {
+    flex: 1;
+    height: 24px;
+    background: #d8f3dc;
+    border-radius: 6px;
+    border: 1px dashed #95d5b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.basket-slot.filled {
+    background: #52b788;
+    border-style: solid;
+    transform: scale(1.05);
+}
+
+/* ========================================
+   6. Área do Jogo & Pomar
+   ======================================== */
+.game-area {
+    flex: 1;
+    position: relative;
+    background-image:
+    linear-gradient(
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.18)
+    ),
+    url("../imagens-jogos-fundo/fundo-america-do-norte.jpg");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+    overflow: hidden;
+    touch-action: none; /* Impede scroll da página durante o swipe */
+    cursor: crosshair;
+}
+
+/* Elementos decorativos do Pomar ao fundo */
+.game-area::before {
+    content: '🌳 🍎 🌲 🍏 🌳';
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+#fruits-container, #particles-container, #swipe-trail-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* ========================================
+   7. Frutas
+   ========================================
+   Mobile: 85px - 105px configurado via JS */
+.fruit-item {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    will-change: transform;
+    pointer-events: none; /* Interceptado pela área principal */
+}
+
+.fruit-emoji {
+    font-size: 85px;
+    filter: drop-shadow(0 6px 8px rgba(0,0,0,0.2));
+    transition: transform 0.1s;
+}
+
+.fruit-item.shake {
+    animation: fruitShake 0.3s ease-in-out;
+}
+
+@keyframes fruitShake {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(-6px, 0) rotate(-8deg); }
+    75% { transform: translate(6px, 0) rotate(8deg); }
+}
+
+/* ========================================
+   9. Trilha do Swipe
+   ======================================== */
+.swipe-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #fff 0%, #ffb703 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 8px #ffb703;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* ========================================
+   10. Feedback
+   ======================================== */
+.feedback-message {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-color);
+    color: var(--text-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 800;
+    font-size: 0.85rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    z-index: 20;
+    border: 2px solid #52b788;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.feedback-message.hidden {
+    opacity: 0;
+    transform: translate(-50%, -10px);
+    pointer-events: none;
+}
+
+/* ========================================
+   11. Corte / Metades
+   ======================================== */
+.fruit-half {
+    position: absolute;
+    font-size: 85px;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+.fruit-half.left {
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+    animation: sliceLeft 0.5s ease-out forwards;
+}
+
+.fruit-half.right {
+    clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+    animation: sliceRight 0.5s ease-out forwards;
+}
+
+@keyframes sliceLeft {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(-45px, 60px) rotate(-45deg); opacity: 0; }
+}
+
+@keyframes sliceRight {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+    100% { transform: translate(45px, 60px) rotate(45deg); opacity: 0; }
+}
+
+/* ========================================
+   12. Partículas
+   ======================================== */
+.juice-particle {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #ff3333;
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 0 6px rgba(255, 51, 51, 0.6);
+    animation: particlePop 0.4s ease-out forwards;
+}
+
+@keyframes particlePop {
+    0% { transform: translate(0, 0) scale(1); opacity: 1; }
+    100% { transform: var(--translate-end) scale(0.3); opacity: 0; }
+}
+
+/* ========================================
+   13. Vitória
+   ======================================== */
+.victory-modal {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30;
+    padding: 20px;
+}
+
+.victory-modal.hidden {
+    display: none;
+}
+
+.victory-card {
+    background: var(--surface-color);
+    padding: 30px 20px;
+    border-radius: var(--radius-round);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+    max-width: 350px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes popIn {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.victory-icon {
+    font-size: 3rem;
+}
+
+.victory-card h2 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+}
+
+.victory-card p {
+    font-size: 1rem;
+    color: #52b788;
+    font-weight: 700;
+}
+
+.confetti-area {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: #ffb703;
+    animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+    0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(320px) rotate(720deg); opacity: 0; }
+}
+
+/* ========================================
+   15. Responsividade
+   ======================================== */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 500px;
+        height: 85vh;
+    }
+}
+
+/* ========================================
+   16. Reduced Motion
+   ======================================== */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

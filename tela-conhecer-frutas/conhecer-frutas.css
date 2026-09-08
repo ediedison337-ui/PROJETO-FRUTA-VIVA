@@ -1,0 +1,975 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --verde: #35a853;
+    --verde-escuro: #247d3d;
+    --laranja: #ff9f1c;
+    --vermelho: #ff5d64;
+    --azul: #34a9e8;
+    --amarelo: #ffd54f;
+
+    --texto: #252525;
+    --texto-claro: #777;
+    --fundo: #fffaf1;
+    --branco: #ffffff;
+
+    --sombra: 0 8px 22px rgba(0, 0, 0, 0.10);
+}
+
+
+/* ==============================
+   BODY
+============================== */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            180deg,
+            #fff8df 0%,
+            #fffdf7 35%,
+            #f6fff7 100%
+        );
+
+    color: var(--texto);
+
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   TOPO
+============================== */
+
+.banner-conhecer-frutas {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 30px;
+    padding: 0 15px;
+}
+
+.banner-conhecer-frutas img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+}
+
+
+.btn-voltar {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #fff2c8;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    color: #333;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.btn-voltar:hover {
+    transform: scale(1.08);
+
+    background: #ffe89e;
+}
+
+
+.titulo-topo {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+
+.icone-titulo {
+    font-size: 46px;
+}
+
+
+.titulo-topo h1 {
+    font-size: 26px;
+
+    color: #2f8d46;
+}
+
+
+.titulo-topo p {
+    margin-top: 4px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ==============================
+   CONTAINER
+============================== */
+
+.container {
+    width: min(1200px, 92%);
+
+    margin: 0 auto;
+
+    padding: 30px 0 70px;
+}
+
+
+/* ==============================
+   PESQUISA
+============================== */
+
+.area-pesquisa {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 20px;
+}
+
+
+.pesquisa {
+    width: min(700px, 100%);
+
+    min-height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 20px;
+
+    background: white;
+
+    border: 2px solid #eee;
+
+    border-radius: 30px;
+
+    box-shadow: var(--sombra);
+}
+
+
+.pesquisa span {
+    font-size: 22px;
+}
+
+
+.pesquisa input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-size: 16px;
+
+    color: #333;
+}
+
+
+.pesquisa input::placeholder {
+    color: #aaa;
+}
+
+
+/* ==============================
+   FILTROS
+============================== */
+
+.filtros {
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 20px 0 35px;
+}
+
+
+.filtro {
+    border: 2px solid #eee;
+
+    background: white;
+
+    padding: 10px 17px;
+
+    border-radius: 25px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.filtro:hover {
+    transform: translateY(-2px);
+
+    border-color: #66be79;
+}
+
+
+.filtro.ativo {
+    background: #3ead5c;
+
+    border-color: #3ead5c;
+
+    color: white;
+}
+
+
+/* ==============================
+   CABEÇALHO DA LISTA
+============================== */
+
+.cabecalho-lista {
+    margin-bottom: 20px;
+}
+
+
+.cabecalho-lista h2 {
+    font-size: 25px;
+}
+
+
+.cabecalho-lista p {
+    margin-top: 4px;
+
+    color: var(--texto-claro);
+}
+
+
+/* ==============================
+   GRADE
+============================== */
+
+.grade-frutas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ==============================
+   CARD DA FRUTA
+============================== */
+
+.card-fruta {
+    position: relative;
+
+    min-height: 240px;
+
+    padding: 16px;
+
+    border: none;
+    border-radius: 25px;
+
+    background: white;
+
+    box-shadow: var(--sombra);
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+
+.card-fruta:hover {
+    transform: translateY(-7px) scale(1.02);
+
+    box-shadow:
+        0 14px 30px
+        rgba(0, 0, 0, 0.15);
+}
+
+
+.card-fruta::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+
+    background: var(--cor-fruta);
+}
+
+
+.imagem-fruta {
+    height: 150px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.9),
+            rgba(255,255,255,0.45)
+        );
+}
+
+
+.imagem-fruta img {
+    width: 135px;
+    height: 135px;
+
+    object-fit: contain;
+
+    transition: transform 0.25s;
+}
+
+
+.card-fruta:hover img {
+    transform: scale(1.10);
+}
+
+
+.emoji-fallback {
+    display: none;
+
+    font-size: 95px;
+}
+
+
+.nome-fruta {
+    margin-top: 14px;
+
+    text-align: center;
+
+    font-size: 19px;
+    font-weight: 800;
+}
+
+
+.ver-mais {
+    margin-top: 6px;
+
+    text-align: center;
+
+    font-size: 12px;
+
+    color: #888;
+}
+
+
+/* ==============================
+   SEM RESULTADO
+============================== */
+
+.nenhum-resultado {
+    display: none;
+
+    text-align: center;
+
+    padding: 60px 20px;
+}
+
+
+.nenhum-resultado span {
+    font-size: 65px;
+}
+
+
+.nenhum-resultado h3 {
+    margin-top: 15px;
+
+    font-size: 24px;
+}
+
+
+.nenhum-resultado p {
+    margin-top: 7px;
+
+    color: #777;
+}
+
+
+/* ==============================
+   MODAL
+============================== */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 100;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+}
+
+
+.modal.aberto {
+    display: flex;
+}
+
+
+.modal-fundo {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.58);
+
+    backdrop-filter: blur(4px);
+}
+
+
+.modal-conteudo {
+    position: relative;
+
+    z-index: 2;
+
+    width: min(850px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.30);
+
+    animation:
+        aparecerModal 0.25s ease;
+}
+
+
+@keyframes aparecerModal {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(25px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+.fechar-modal {
+    position: absolute;
+
+    right: 18px;
+    top: 15px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #f2f2f2;
+
+    font-size: 29px;
+
+    cursor: pointer;
+
+    z-index: 5;
+}
+
+
+.modal-fruta-topo {
+    display: flex;
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 15px 15px 25px;
+
+    border-bottom: 2px solid #f1f1f1;
+}
+
+
+.imagem-modal-container {
+    width: 230px;
+    height: 230px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 28px;
+
+    background: #fff8e8;
+}
+
+
+.imagem-modal-container img {
+    width: 200px;
+    height: 200px;
+
+    object-fit: contain;
+}
+
+
+.emoji-modal {
+    display: none;
+
+    font-size: 145px;
+}
+
+
+.info-principal {
+    padding-right: 25px;
+}
+
+
+.categoria-modal {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: #ecf9ef;
+
+    color: #32904b;
+
+    font-size: 12px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+
+.info-principal h2 {
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+
+.info-principal p {
+    line-height: 1.6;
+
+    color: #666;
+}
+
+
+/* ==============================
+   INFORMAÇÕES
+============================== */
+
+.informacoes-fruta {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+
+.info-card {
+    display: flex;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    border-radius: 20px;
+
+    background: #fafafa;
+
+    border: 1px solid #eeeeee;
+}
+
+
+.info-card-grande {
+    grid-column: span 2;
+}
+
+
+.icone-info {
+    font-size: 30px;
+
+    flex-shrink: 0;
+}
+
+
+.info-card h3 {
+    font-size: 15px;
+
+    margin-bottom: 6px;
+}
+
+
+.info-card p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+.btn-fechar-final {
+    display: block;
+
+    width: min(330px, 100%);
+
+    margin: 28px auto 0;
+
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3fb85f,
+            #259246
+        );
+
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 16px
+        rgba(41, 154, 74, 0.25);
+}
+
+
+.btn-fechar-final:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ==============================
+   BANNER CONHECER FRUTAS
+============================== */
+
+.banner-conhecer-frutas {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 30px;
+    padding: 0 15px;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.banner-conhecer-frutas img {
+    width: 100%;
+    height: 390px;
+    display: block;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+/* BOTÃO VOLTAR EM CIMA DO BANNER */
+.btn-voltar-banner {
+    position: absolute;
+
+    top: 4%;
+    left: 2%;
+
+    width: 18%;
+    height: 12%;
+
+    background: transparent;
+    border: none;
+    border-radius: 30px;
+
+    z-index: 10;
+    cursor: pointer;
+}
+
+
+.btn-voltar-banner:hover {
+    transform: scale(1.08);
+}
+
+@media (max-width: 768px) {
+    .banner-conhecer-frutas {
+        margin: 10px auto 20px;
+        padding: 0 10px;
+    }
+
+    .banner-conhecer-frutas img {
+        height: 220px;
+        border-radius: 14px;
+    }
+
+    .btn-voltar-banner {
+        top: 18px;
+        left: 22px;
+        width: 48px;
+        height: 48px;
+        font-size: 26px;
+    }
+}
+
+
+/* ==============================
+   CELULAR
+============================== */
+
+@media (max-width: 768px) {
+
+    .banner-conhecer-frutas {
+        margin: 10px auto 20px;
+        padding: 0 10px;
+    }
+
+    .banner-conhecer-frutas img {
+        border-radius: 14px;
+    }
+}
+@media (max-width: 700px) {
+
+    .topo {
+        min-height: 90px;
+
+        padding: 15px 18px;
+    }
+
+
+    .btn-voltar {
+        width: 42px;
+        height: 42px;
+
+        font-size: 24px;
+    }
+
+
+    .icone-titulo {
+        font-size: 34px;
+    }
+
+
+    .titulo-topo h1 {
+        font-size: 20px;
+    }
+
+
+    .titulo-topo p {
+        font-size: 11px;
+    }
+
+
+    .container {
+        width: 92%;
+
+        padding-top: 22px;
+    }
+
+
+    .grade-frutas {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 14px;
+    }
+
+
+    .card-fruta {
+        min-height: 195px;
+
+        padding: 10px;
+
+        border-radius: 20px;
+    }
+
+
+    .imagem-fruta {
+        height: 120px;
+    }
+
+
+    .imagem-fruta img {
+        width: 110px;
+        height: 110px;
+    }
+
+
+    .emoji-fallback {
+        font-size: 72px;
+    }
+
+
+    .nome-fruta {
+        margin-top: 10px;
+
+        font-size: 16px;
+    }
+
+
+    .ver-mais {
+        font-size: 10px;
+    }
+
+
+    .modal {
+        padding: 10px;
+    }
+
+
+    .modal-conteudo {
+        padding: 25px 17px;
+
+        border-radius: 23px;
+
+        max-height: 94vh;
+    }
+
+
+    .modal-fruta-topo {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 12px;
+    }
+
+
+    .imagem-modal-container {
+        width: 190px;
+        height: 190px;
+    }
+
+
+    .imagem-modal-container img {
+        width: 165px;
+        height: 165px;
+    }
+
+
+    .emoji-modal {
+        font-size: 120px;
+    }
+
+
+    .info-principal {
+        padding: 0;
+    }
+
+
+    .info-principal h2 {
+        font-size: 30px;
+    }
+
+
+    .informacoes-fruta {
+        grid-template-columns: 1fr;
+    }
+
+
+    .info-card-grande {
+        grid-column: span 1;
+    }
+
+}
+
+
+@media (max-width: 380px) {
+
+    .grade-frutas {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .nome-fruta {
+        font-size: 14px;
+    }
+
+}
+@media (max-width: 600px) {
+
+    .btn-voltar-banner {
+        position: absolute;
+
+        top: 18px;
+        left: 20px;
+
+        width: auto;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0 14px;
+
+        background: #f7dba0;
+        border: 2px solid #744921;
+        border-radius: 22px;
+
+        color: #5a3518;
+        text-decoration: none;
+
+        font-size: 13px;
+        font-weight: bold;
+
+        z-index: 9999;
+    }
+
+    .btn-voltar-banner::before {
+        content: "← Voltar";
+    }
+}

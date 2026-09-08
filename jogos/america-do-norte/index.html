@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruta Viva - Missão da Colheita (Maçã)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <section id="start-screen" class="screen">
+            <div class="start-card">
+                <div class="fruit-showcase-large">🍎</div>
+                <span class="region-badge">AMÉRICA DO NORTE</span>
+                <h1>MISSÃO DA COLHEITA</h1>
+                <p class="mission-desc">"Corte somente a MAÇÃ!"</p>
+                <div class="demo-swipe-container">
+                    <div class="demo-apple">🍎</div>
+                    <div class="demo-finger-trail"></div>
+                </div>
+                <button id="btn-start" class="primary-btn">COMEÇAR A COLHEITA</button>
+            </div>
+        </section>
+
+        <div id="game-screen" class="screen hidden">
+            <header class="game-header">
+                <div class="hud-info">
+                    <span class="hud-icon">🍎</span>
+                    <div>
+                        <h2>MAÇÃ</h2>
+                        <p>Corte somente a MAÇÃ!</p>
+                    </div>
+                </div>
+                <button id="btn-reset" class="control-btn" title="Reiniciar">↻ Reiniciar</button>
+            </header>
+
+            <section class="basket-hud" aria-label="Progresso da Cesta">
+                <div class="basket-label">
+                    <span>Progresso:</span>
+                    <span id="progress-text">0 / 8</span>
+                </div>
+                <div class="basket-slots" id="basket-slots">
+                    </div>
+            </section>
+
+            <main id="game-area" class="game-area" aria-label="Área de Jogo">
+                <div id="fruits-container"></div>
+                <div id="particles-container"></div>
+                <div id="swipe-trail-container"></div>
+                
+                <div id="feedback-message" class="feedback-message hidden" role="status"></div>
+            </main>
+        </div>
+
+        <div id="victory-screen" class="victory-modal hidden">
+            <div class="victory-card">
+                <div class="confetti-area" id="confetti-container"></div>
+                <div class="victory-icon">🎉</div>
+                <h2>CESTA COMPLETA!</h2>
+                <p>Você encontrou 8 maçãs!</p>
+                <button id="btn-quiz" class="primary-btn">RESPONDER QUIZ</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

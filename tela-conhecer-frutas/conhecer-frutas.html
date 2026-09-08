@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Conhecer Frutas | Fruta Viva</title>
+
+    <link rel="stylesheet" href="conhecer-frutas.css">
+</head>
+
+<body>
+
+    <header class="topo">
+
+        <div class="banner-conhecer-frutas">
+
+            <a href="../tela-principal/principal.html" class="btn-voltar-banner" aria-label="Voltar à página principal">
+            </a>
+            <img src="./imagens/topo-explorador-de-frutas.png" alt="Fruta Viva - Explorador de Frutas">
+
+        </div>
+
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="area-pesquisa">
+
+            <div class="pesquisa">
+                <span>🔎</span>
+
+                <input type="text" id="pesquisa-fruta" placeholder="Qual fruta você quer conhecer?" autocomplete="off">
+            </div>
+
+        </section>
+
+
+        <section class="filtros" id="filtros">
+
+            <button class="filtro ativo" data-categoria="todas">
+                Todas
+            </button>
+
+            <button class="filtro" data-categoria="tropical">
+                🏝️ Tropicais
+            </button>
+
+            <button class="filtro" data-categoria="citrica">
+                🍋 Cítricas
+            </button>
+
+            <button class="filtro" data-categoria="brasileira">
+                🇧🇷 Brasileiras
+            </button>
+
+            <button class="filtro" data-categoria="vermelha">
+                ❤️ Vermelhas
+            </button>
+
+        </section>
+
+
+        <section class="cabecalho-lista">
+
+            <div>
+                <h2>Explore as frutas</h2>
+                <p id="contador-frutas"></p>
+            </div>
+
+        </section>
+
+
+        <section class="grade-frutas" id="grade-frutas"></section>
+
+
+        <div class="nenhum-resultado" id="nenhum-resultado">
+            <span>🤔</span>
+
+            <h3>Fruta não encontrada</h3>
+
+            <p>
+                Tente pesquisar outro nome.
+            </p>
+        </div>
+
+    </main>
+
+
+    <!-- MODAL / FICHA DA FRUTA -->
+
+    <div class="modal" id="modal-fruta" aria-hidden="true">
+
+        <div class="modal-fundo" id="modal-fundo"></div>
+
+
+        <article class="modal-conteudo">
+
+            <button class="fechar-modal" id="fechar-modal" type="button">
+                ×
+            </button>
+
+
+            <div class="modal-fruta-topo">
+
+                <div class="imagem-modal-container">
+
+                    <img id="modal-imagem" src="" alt="">
+
+                    <span id="modal-emoji" class="emoji-modal"></span>
+
+                </div>
+
+
+                <div class="info-principal">
+
+                    <span class="categoria-modal" id="modal-categoria"></span>
+
+                    <h2 id="modal-nome"></h2>
+
+                    <p id="modal-descricao"></p>
+
+                </div>
+
+            </div>
+
+
+            <div class="informacoes-fruta">
+
+                <div class="info-card">
+
+                    <div class="icone-info">
+                        💪
+                    </div>
+
+                    <div>
+                        <h3>Benefícios</h3>
+                        <p id="modal-beneficios"></p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icone-info">
+                        🥝
+                    </div>
+
+                    <div>
+                        <h3>Nutrientes</h3>
+                        <p id="modal-nutrientes"></p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icone-info">
+                        🌎
+                    </div>
+
+                    <div>
+                        <h3>Origem</h3>
+                        <p id="modal-origem"></p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icone-info">
+                        📅
+                    </div>
+
+                    <div>
+                        <h3>Melhor época</h3>
+                        <p id="modal-epoca"></p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card info-card-grande">
+
+                    <div class="icone-info">
+                        🧠
+                    </div>
+
+                    <div>
+                        <h3>Você sabia?</h3>
+                        <p id="modal-curiosidade"></p>
+                    </div>
+
+                </div>
+
+
+                <div class="info-card info-card-grande">
+
+                    <div class="icone-info">
+                        🍽️
+                    </div>
+
+                    <div>
+                        <h3>Dica Fruta Viva</h3>
+                        <p id="modal-dica"></p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button class="btn-fechar-final" id="btn-fechar-final" type="button">
+                Continuar explorando 🍉
+            </button>
+
+        </article>
+
+    </div>
+
+
+    <script src="conhecer-frutas.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Fruta Viva - Europa - Uva
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body>
+
+    <div class="app-container">
+
+
+        <!-- ============================= -->
+        <!-- CABEÇALHO -->
+        <!-- ============================= -->
+
+        <header class="game-header">
+
+            <div class="continent-badge">
+                🌍 EUROPA
+            </div>
+
+            <div class="fruit-badge">
+                🍇 UVA
+            </div>
+
+            <h1 class="game-title">
+                Vamos preparar o suco!
+            </h1>
+
+            <div class="mission-card">
+
+                <strong>
+                    Separe o ROXO
+                </strong>
+
+                <span>
+                    e encha a Jarra da Uva
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ============================= -->
+        <!-- JOGO -->
+        <!-- ============================= -->
+
+        <main class="game-main">
+
+
+            <!-- JARRA -->
+
+            <section class="jar-section">
+
+                <div
+                    id="jarra"
+                    class="jar-container"
+                    aria-label="Jarra da Uva"
+                >
+
+                    <div class="jar-title">
+                        🍇 JARRA DA UVA
+                    </div>
+
+
+                    <div class="pitcher">
+
+                        <div class="pitcher-spout"></div>
+
+                        <div class="pitcher-handle"></div>
+
+
+                        <div class="jar-body">
+
+                            <div
+                                class="jar-liquid"
+                                id="jar-liquid"
+                            ></div>
+
+
+                            <div class="jar-shine"></div>
+
+
+                            <div class="jar-measure-marks">
+
+                                <span>
+                                    100%
+                                </span>
+
+                                <span>
+                                    75%
+                                </span>
+
+                                <span>
+                                    50%
+                                </span>
+
+                                <span>
+                                    25%
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="jar-bubbles"
+                                id="jar-bubbles"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="jar-label">
+
+                        <span class="jar-progress-label">
+                            Suco coletado
+                        </span>
+
+                        <span
+                            class="jar-progress"
+                            id="jar-progress-text"
+                        >
+                            0 / 6
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- TUBOS -->
+
+            <section class="lab-section">
+
+                <div class="lab-header">
+
+                    <span>
+                        🧪 Tubos de frutas
+                    </span>
+
+                    <small>
+                        Toque em um tubo e depois no destino
+                    </small>
+
+                </div>
+
+
+                <div
+                    class="tubes-section"
+                    id="tubes-container"
+                ></div>
+
+            </section>
+
+        </main>
+
+
+        <!-- ============================= -->
+        <!-- CONTROLES -->
+        <!-- ============================= -->
+
+        <footer class="game-footer">
+
+            <button
+                id="btn-undo"
+                class="control-btn"
+                type="button"
+            >
+                ↶ Desfazer
+            </button>
+
+
+            <button
+                id="btn-reset"
+                class="control-btn"
+                type="button"
+            >
+                ↻ Reiniciar
+            </button>
+
+        </footer>
+
+
+        <!-- ============================= -->
+        <!-- FEEDBACK -->
+        <!-- ============================= -->
+
+        <div
+            id="feedback-message"
+            class="feedback-message hidden"
+            role="status"
+        ></div>
+
+
+        <!-- ============================= -->
+        <!-- VITÓRIA -->
+        <!-- ============================= -->
+
+        <div
+            id="victory-modal"
+            class="victory-modal hidden"
+        >
+
+            <div class="victory-content">
+
+                <div
+                    class="confetti-container"
+                    id="confetti-container"
+                ></div>
+
+
+                <div class="victory-grape">
+                    🍇
+                </div>
+
+                <h2 class="victory-title">
+                    SUCO PRONTO!
+                </h2>
+
+                <p class="victory-subtitle">
+                    Você conseguiu preparar
+                    o Suco de Uva!
+                </p>
+
+
+                <button
+                    id="btn-quiz"
+                    class="primary-btn"
+                    type="button"
+                >
+                    RESPONDER QUIZ
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruta Viva - Aventuras pelo Mundo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="game-container">
+        <a href="../tela-principal/principal.html" class="btn-voltar-aventuras">
+            <span>←</span>
+            Voltar ao início
+        </a>
+        <!-- ÁREA DOS VÍDEOS DA AVENTURA -->
+        <div id="video-container" class="video-container hidden">
+
+            <video id="video-aventura" playsinline>
+                Seu navegador não suporta vídeo.
+            </video>
+
+        </div>
+
+        <div class="contador-estrelas">
+            Estrelas coletadas:
+            <span id="star-count">0</span>
+            ⭐
+        </div>
+
+
+        <section id="map-screen" class="screen active">
+            <h2>🌍 Aventuras pelo Mundo</h2>
+            <p> Prepare-se para descobrir o próximo destino!</p>
+
+            <div id="map-container">
+                <div id="map-board">
+                    <div id="plane" class="hidden">🛩️</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="btn-start-adventure" class="btn-primary">Iniciar Próxima Viagem ✈️</button>
+            </div>
+            <div class="personagens-mapa">
+
+                <!-- LADO ESQUERDO: criança -->
+                <div class="jogador-mapa">
+                    <img id="avatar-jogador" src="" alt="Avatar do jogador">
+
+                    <label class="nome-escolhido">
+                        <span class="titulo-jogador">Jogador</span>
+                        <span id="nome-jogador"></span>
+                    </label>
+
+                </div>
+
+                <!-- LADO DIREITO: personagens fixos do Fruta Viva -->
+                <div class="mascotes-mapa">
+                    <img id="maraculivia-mapa" src="imagens/maraculivia.png" alt="MaracuLívia">
+
+                    <img id="laranjinha-mapa" src="imagens/laranjinha.png" alt="Laranjinha">
+                </div>
+            </div>
+        </section>
+
+        <section id="minigame-screen" class="screen">
+
+            <h2 id="destination-title">Destino</h2>
+
+            <p id="destination-subtitle">
+                Você chegou ao destino! É hora do desafio.
+            </p>
+
+
+
+            <!-- ÁREA TEMPORÁRIA DE MINIGAME — será substituída pelas pastas de jogos -->
+            <div class="minigame-box" id="generic-minigame-box">
+
+                <p>🎮 [Minigame do País]</p>
+
+                <button id="btn-finish-minigame" class="btn-primary">
+                    Concluir minigame
+                </button>
+
+            </div>
+            <div id="game-frame-wrapper" class="hidden">
+                <iframe id="game-frame" title="Minigame Fruta Viva">
+                </iframe>
+            </div>
+        </section>
+
+        <section id="quiz-screen" class="screen">
+            <h2>❓ Hora do Quiz da Fruta!</h2>
+            <p id="quiz-question">Carregando pergunta...</p>
+            <div id="quiz-options" class="options-container">
+            </div>
+        </section>
+
+        <section id="completed-screen" class="screen">
+            <h2>🎉 Aventura Concluída!</h2>
+
+            <p>Parabéns! Você visitou todos os países do mundo nesta campanha!</p>
+
+            <button id="btn-restart-campaign" class="btn-primary">
+                Reiniciar Campanha
+            </button>
+
+            <button class="btn-primary" onclick="window.location.href='../tela-principal/principal.html'">
+                🏠 Voltar ao Início
+            </button>
+        </section>
+    </div>
+    <!-- MODAL DE RECOMPENSA -->
+    <div id="modal-recompensa" class="modal-recompensa hidden">
+        <div class="modal-recompensa-box">
+            <div class="modal-estrelas">⭐ ✨ ⭐</div>
+            <h3 id="modal-recompensa-titulo">Muito bem!</h3>
+            <p id="modal-recompensa-texto">Você ganhou +1 estrela!</p>
+            <button id="btn-fechar-recompensa" class="btn-recompensa">
+                Continuar
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

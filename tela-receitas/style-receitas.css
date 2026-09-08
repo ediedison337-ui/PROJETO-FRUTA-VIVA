@@ -1,0 +1,1271 @@
+/* =========================================
+   FRUTA VIVA - RECEITAS
+========================================= */
+
+
+/* =========================================
+   CONFIGURAÇÕES GERAIS
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #333;
+
+    background: linear-gradient(
+        180deg,
+        #fffdf5 0%,
+        #fff8e8 100%
+    );
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+
+.topo-receitas {
+    width: 100%;
+    min-height: 185px;
+
+    padding:
+        15px
+        30px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 20px;
+
+    background-image:
+        url("./imagens-receitas/fundo-receitas.png");
+
+    background-size: cover;
+
+    background-position:
+        left center;
+
+    background-repeat:
+        no-repeat;
+
+    box-shadow:
+        0 4px 18px
+        rgba(0, 0, 0, 0.12);
+
+    position: relative;
+
+    top: 0;
+
+    z-index: 100;
+
+    position: relative;
+}
+
+/* ==========================================
+   BOTÃO VOLTAR - RECEITAS
+========================================== */
+
+.btn-voltar-receitas {
+    position: absolute;
+    top: 10px;
+    left: 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 16px;
+
+    background: #fff1c9;
+    color: #6b351d;
+
+    border: 3px solid #9a562d;
+    border-radius: 30px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 0 #6f381e,
+        0 7px 12px rgba(0, 0, 0, 0.18);
+
+    z-index: 20;
+    cursor: pointer;
+}
+
+.btn-voltar-receitas:visited {
+    color: #6b351d;
+}
+
+.btn-voltar-receitas:hover {
+    color: #6b351d;
+    text-decoration: none;
+    background: #ffe49c;
+    transform: translateY(-2px);
+}
+
+.btn-voltar-receitas span {
+    font-size: 20px;
+}
+/* =========================================
+   PESQUISA
+========================================= */
+
+.area-pesquisa {
+    width: 420px;
+    max-width: 35vw;
+
+    height: 52px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.icone-pesquisa {
+    position: absolute;
+
+    left: 18px;
+
+    z-index: 2;
+
+    font-size: 19px;
+
+    pointer-events: none;
+}
+
+
+.pesquisa-receitas {
+    width: 100%;
+    height: 100%;
+
+    padding:
+        0
+        20px
+        0
+        50px;
+
+    border:
+        2px solid
+        rgba(255, 255, 255, 0.95);
+
+    border-radius: 28px;
+
+    outline: none;
+
+    font-size: 15px;
+
+    color: #555;
+
+    background:
+        rgba(255, 255, 255, 0.93);
+
+    box-shadow:
+        0 4px 14px
+        rgba(0, 0, 0, 0.12);
+
+    transition:
+        0.25s;
+}
+
+
+.pesquisa-receitas:focus {
+    border-color: #6dbd45;
+
+    background:
+        rgba(255, 255, 255, 0.98);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(109, 189, 69, 0.14);
+}
+
+
+/* =========================================
+   AVATAR
+========================================= */
+
+.area-avatar {
+    width: 92px;
+    height: 92px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+.avatar-receitas {
+    width: 84px;
+    height: 84px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+
+    background: white;
+
+    border:
+        4px solid
+        white;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.20);
+}
+
+
+/* =========================================
+   CONTEÚDO
+========================================= */
+
+.conteudo-receitas {
+    width: min(
+        1450px,
+        calc(100% - 40px)
+    );
+
+    margin:
+        0
+        auto;
+
+    padding:
+        35px
+        0
+        80px;
+}
+
+
+/* =========================================
+   APRESENTAÇÃO
+========================================= */
+
+.apresentacao {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+
+.apresentacao h1 {
+    color: #388e3c;
+
+    font-size: clamp(
+        28px,
+        4vw,
+        46px
+    );
+
+    margin-bottom: 8px;
+}
+
+
+.apresentacao p {
+    font-size: 17px;
+
+    color: #666;
+}
+
+
+/* =========================================
+   GRADE DAS FRUTAS
+========================================= */
+
+.grade-frutas {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 35px;
+}
+
+
+/* =========================================
+   PRIMEIRO BLOCO
+========================================= */
+
+.bloco-fruta:first-child {
+    grid-column:
+        1 / -1;
+}
+
+
+/* =========================================
+   BLOCO DA FRUTA
+========================================= */
+
+.bloco-fruta {
+    width: 100%;
+
+    background: white;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 28px
+        rgba(0, 0, 0, 0.09);
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+
+.bloco-fruta:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================================
+   TÍTULO DA FRUTA
+========================================= */
+
+.cabecalho-fruta {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding:
+        18px
+        22px;
+
+    color: white;
+}
+
+
+.cabecalho-fruta h2 {
+    font-size: 27px;
+}
+
+
+.quantidade-receitas {
+    padding:
+        7px
+        12px;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255, 255, 255, 0.25);
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================
+   CORES DAS FRUTAS
+========================================= */
+
+.bloco-fruta[data-fruta="abacaxi"]
+.cabecalho-fruta {
+    background:
+        linear-gradient(
+            135deg,
+            #f7b731,
+            #f39c12
+        );
+}
+
+
+.bloco-fruta[data-fruta="kiwi"]
+.cabecalho-fruta {
+    background:
+        linear-gradient(
+            135deg,
+            #7cb342,
+            #558b2f
+        );
+}
+
+
+.bloco-fruta[data-fruta="maca"]
+.cabecalho-fruta {
+    background:
+        linear-gradient(
+            135deg,
+            #ef5350,
+            #d32f2f
+        );
+}
+
+
+.bloco-fruta[data-fruta="manga"]
+.cabecalho-fruta {
+    background:
+        linear-gradient(
+            135deg,
+            #ffb300,
+            #fb8c00
+        );
+}
+
+
+.bloco-fruta[data-fruta="maracuja"]
+.cabecalho-fruta {
+    background:
+        linear-gradient(
+            135deg,
+            #ffc107,
+            #ff9800
+        );
+}
+
+
+.bloco-fruta[data-fruta="melancia"]
+.cabecalho-fruta {
+    background:
+        linear-gradient(
+            135deg,
+            #ef5350,
+            #43a047
+        );
+}
+
+
+.bloco-fruta[data-fruta="uva"]
+.cabecalho-fruta {
+    background:
+        linear-gradient(
+            135deg,
+            #8e44ad,
+            #5e35b1
+        );
+}
+
+
+/* =========================================
+   MOSAICO DAS RECEITAS
+========================================= */
+
+.mosaico-receitas {
+    padding: 15px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    grid-auto-rows: auto;
+
+    gap: 12px;
+}
+
+
+/* PRIMEIRA RECEITA */
+
+.card-receita:first-child {
+    grid-column:
+        span 2;
+}
+
+
+/* RECEITA SALGADA */
+
+.card-receita:last-child {
+    grid-column:
+        span 2;
+}
+
+
+/* =========================================
+   ABACAXI - DESTAQUE
+========================================= */
+
+.bloco-fruta:first-child
+.mosaico-receitas {
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+}
+
+
+/*
+   Aqui não fazemos mais aquele
+   mosaico maluco de 3 colunas.
+
+   Assim as imagens ficam inteiras
+   e o layout fica mais previsível.
+*/
+
+.bloco-fruta:first-child
+.card-receita:first-child {
+    grid-column:
+        span 2;
+}
+
+
+.bloco-fruta:first-child
+.card-receita:last-child {
+    grid-column:
+        span 2;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.card-receita {
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #fff;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+
+.card-receita:hover {
+    transform:
+        scale(1.012);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0, 0, 0, 0.18);
+}
+
+
+/* =========================================
+   IMAGEM - NÃO CORTAR
+========================================= */
+
+.card-receita img {
+    width: 100%;
+
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    object-position: center;
+
+    background: white;
+
+    transition:
+        transform 0.35s;
+}
+
+
+.card-receita:hover img {
+    transform:
+        scale(1.015);
+}
+
+
+/* =========================================
+   SOMBRA SOBRE A FOTO
+========================================= */
+
+.card-receita::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.58) 0%,
+            rgba(0, 0, 0, 0.10) 38%,
+            transparent 62%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   TEXTO DOS CARDS
+========================================= */
+
+.info-card {
+    position: absolute;
+
+    left: 14px;
+    right: 14px;
+    bottom: 13px;
+
+    z-index: 3;
+
+    color: white;
+}
+
+
+.tipo-card {
+    display: inline-block;
+
+    margin-bottom: 5px;
+
+    padding:
+        5px
+        9px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(255, 255, 255, 0.95);
+
+    color: #333;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+
+.nome-receita {
+    display: block;
+
+    font-size: 16px;
+
+    line-height: 1.2;
+
+    font-weight: bold;
+
+    text-shadow:
+        0 2px 5px
+        rgba(0, 0, 0, 0.75);
+}
+
+
+/* PRIMEIRA RECEITA */
+
+.bloco-fruta:first-child
+.card-receita:first-child
+.nome-receita {
+    font-size: 24px;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.modal-receita {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(0, 0, 0, 0.72);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.25s;
+}
+
+
+.modal-receita.aberto {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.modal-conteudo {
+    width: min(
+        1000px,
+        96vw
+    );
+
+    max-height: 92vh;
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(
+            300px,
+            42%
+        )
+        1fr;
+
+    overflow-y: auto;
+
+    background: white;
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 70px
+        rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   FOTO DO MODAL
+========================================= */
+
+.modal-imagem-area {
+    min-height: 520px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #fff;
+}
+
+
+.modal-imagem-area img {
+    width: 100%;
+
+    height: auto;
+
+    max-height: 520px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================================
+   TEXTO MODAL
+========================================= */
+
+.modal-texto {
+    padding:
+        45px
+        38px;
+}
+
+
+.modal-tipo {
+    display: inline-block;
+
+    padding:
+        7px
+        13px;
+
+    margin-bottom: 10px;
+
+    border-radius: 20px;
+
+    background: #e8f5e9;
+
+    color: #2e7d32;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+.modal-texto h2 {
+    margin-bottom: 28px;
+
+    font-size: clamp(
+        25px,
+        3vw,
+        36px
+    );
+
+    line-height: 1.1;
+
+    color: #333;
+}
+
+
+.parte-receita {
+    margin-bottom: 25px;
+}
+
+
+.parte-receita h3 {
+    margin-bottom: 8px;
+
+    color: #388e3c;
+
+    font-size: 19px;
+}
+
+
+.parte-receita p {
+    color: #555;
+
+    line-height: 1.65;
+
+    font-size: 16px;
+}
+
+
+/* =========================================
+   AVISO ADULTO
+========================================= */
+
+.aviso-adulto {
+    padding: 14px;
+
+    border-left:
+        5px solid
+        #ffc107;
+
+    border-radius: 10px;
+
+    background: #fff3cd;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================
+   FECHAR MODAL
+========================================= */
+
+.fechar-modal {
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    z-index: 20;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 0, 0, 0.65);
+
+    color: white;
+
+    font-size: 29px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================
+   NENHUMA RECEITA
+========================================= */
+
+.nenhuma-receita {
+    padding:
+        60px
+        20px;
+
+    text-align: center;
+
+    font-size: 23px;
+
+    color: #777;
+}
+
+
+.escondido {
+    display: none !important;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .grade-frutas {
+        grid-template-columns: 1fr;
+    }
+
+
+    .bloco-fruta:first-child {
+        grid-column: auto;
+    }
+
+
+    .modal-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+
+    .modal-imagem-area {
+        min-height: auto;
+    }
+
+
+    .modal-imagem-area img {
+        max-height: 400px;
+    }
+
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 700px) {
+
+    /* ==============================
+       HEADER
+    ============================== */
+
+    .topo-receitas {
+        min-height: 105px;
+
+        padding:
+            7px
+            10px;
+
+        gap: 7px;
+
+        background-position:
+            left center;
+    }
+
+
+    /* ==============================
+       PESQUISA MENOR
+    ============================== */
+
+    .area-pesquisa {
+        width: 210px;
+        max-width: 48vw;
+
+        height: 42px;
+
+        flex-shrink: 1;
+    }
+
+
+    .icone-pesquisa {
+        left: 12px;
+
+        font-size: 15px;
+    }
+
+
+    .pesquisa-receitas {
+        padding:
+            0
+            8px
+            0
+            36px;
+
+        font-size: 11px;
+    }
+
+
+    /* ==============================
+       AVATAR
+    ============================== */
+
+    .area-avatar {
+        width: 62px;
+        height: 62px;
+    }
+
+
+    .avatar-receitas {
+        width: 58px;
+        height: 58px;
+
+        border-width: 2px;
+    }
+
+
+    /* ==============================
+       CONTEÚDO
+    ============================== */
+
+    .conteudo-receitas {
+        width:
+            calc(
+                100% - 20px
+            );
+
+        padding:
+            28px
+            0
+            60px;
+    }
+
+
+    .apresentacao {
+        margin-bottom: 25px;
+    }
+
+
+    .apresentacao h1 {
+        font-size: 31px;
+    }
+
+
+    .apresentacao p {
+        font-size: 14px;
+
+        line-height: 1.4;
+    }
+
+
+    /* ==============================
+       FRUTAS
+    ============================== */
+
+    .grade-frutas {
+        gap: 22px;
+    }
+
+
+    .cabecalho-fruta {
+        padding:
+            14px
+            16px;
+    }
+
+
+    .cabecalho-fruta h2 {
+        font-size: 21px;
+    }
+
+
+    .quantidade-receitas {
+        font-size: 11px;
+    }
+
+
+    /* ==============================
+       MOSAICO
+    ============================== */
+
+    .mosaico-receitas {
+        padding: 10px;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0, 1fr)
+            );
+
+        grid-auto-rows: auto;
+
+        gap: 8px;
+    }
+
+
+    /* primeira imagem larga */
+
+    .card-receita:first-child {
+        grid-column:
+            span 2;
+    }
+
+
+    /* salgada larga */
+
+    .card-receita:last-child {
+        grid-column:
+            span 2;
+    }
+
+
+    .card-receita {
+        border-radius: 14px;
+    }
+
+
+    .nome-receita {
+        font-size: 13px;
+    }
+
+
+    .tipo-card {
+        font-size: 9px;
+
+        padding:
+            4px
+            7px;
+    }
+
+
+    .bloco-fruta:first-child
+    .card-receita:first-child
+    .nome-receita {
+        font-size: 19px;
+    }
+
+
+    /* ==============================
+       MODAL
+    ============================== */
+
+    .modal-receita {
+        padding: 8px;
+    }
+
+
+    .modal-conteudo {
+        border-radius: 20px;
+    }
+
+
+    .modal-imagem-area img {
+        max-height: 300px;
+    }
+
+
+    .modal-texto {
+        padding:
+            28px
+            20px;
+    }
+
+}
+
+
+/* =========================================
+   CELULAR PEQUENO
+========================================= */
+
+@media (max-width: 430px) {
+
+    .topo-receitas {
+        min-height: 95px;
+
+        padding:
+            6px
+            7px;
+
+        gap: 5px;
+    }
+
+
+    .area-pesquisa {
+        width: 185px;
+
+        max-width: 47vw;
+
+        height: 39px;
+    }
+
+
+    .pesquisa-receitas {
+        font-size: 10px;
+    }
+
+
+    .area-avatar {
+        width: 56px;
+        height: 56px;
+    }
+
+
+    .avatar-receitas {
+        width: 52px;
+        height: 52px;
+    }
+
+
+    .apresentacao h1 {
+        font-size: 27px;
+    }
+
+}
+@media (max-width: 600px) {
+
+    .btn-voltar-receitas {
+        position: absolute;
+
+        top: 90px;
+        left: 7px;
+
+        width: auto;
+        min-width: 75px;
+        height: 25px;
+
+        padding: 0 12px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 16px;
+        font-weight: bold;
+
+        border-radius: 20px;
+
+        z-index: 9999;
+    }
+
+}
