@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fruta Viva - Abertura</title>
     <link rel="stylesheet" href="tela-abertura.css">
+    <link rel="manifest" href="../manifest.webmanifest">
+    <meta name="theme-color" content="#35c86f">
 </head>
+
 <body>
     <main class="welcome-container">
         <div class="nature-decor leaf-1"></div>
@@ -17,14 +21,16 @@
 
         <section class="mascot-section">
             <div class="mascot-glow"></div>
-            <img src="../assets/mascotes/mascote-maraculivia.png" alt="Mascote Maraculívia acenando com alegria" class="mascot-img">
+            <img src="../assets/mascotes/mascote-maraculivia.png" alt="Mascote Maraculívia acenando com alegria"
+                class="mascot-img">
         </section>
 
         <section class="content-section">
             <h2 class="welcome-subtitle">Oi! Eu sou a Maraculívia! 🌿</h2>
             <p class="welcome-description">
-                No <strong>Fruta Viva</strong>, você vai descobrir frutas, curiosidades, receitas, desafios e muitos jogos.
-             <strong>Vamos começar essa aventura?</strong>
+                No <strong>Fruta Viva</strong>, você vai descobrir frutas, curiosidades, receitas, desafios e muitos
+                jogos.
+                <strong>Vamos começar essa aventura?</strong>
             </p>
         </section>
 
@@ -32,7 +38,20 @@
             <button id="btn-start" class="start-btn">Começar</button>
         </footer>
     </main>
-
+<script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+            navigator.serviceWorker.register("../service-worker.js")
+                .then(() => {
+                    console.log("Fruta Viva: Service Worker ativo!");
+                })
+                .catch((erro) => {
+                    console.error("Erro no Service Worker:", erro);
+                });
+        });
+    }
+</script>
     <script src="tela-abertura.js"></script>
 </body>
+
 </html>
