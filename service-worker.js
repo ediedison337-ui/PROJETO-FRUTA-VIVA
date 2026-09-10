@@ -1,4 +1,4 @@
-const CACHE_NAME = "fruta-viva-v1";
+const CACHE_NAME = "fruta-viva-v2";
 
 const ARQUIVOS_INICIAIS = [
     "./",
@@ -6,7 +6,8 @@ const ARQUIVOS_INICIAIS = [
     "./manifest.webmanifest",
     "./tela-abertura/tela-abertura.html",
     "./tela-abertura/tela-abertura.css",
-    "./tela-abertura/tela-abertura.js"
+    "./tela-abertura/tela-abertura.js",
+    "./tela-principal/principal.html"
 ];
 
 self.addEventListener("install", (event) => {
