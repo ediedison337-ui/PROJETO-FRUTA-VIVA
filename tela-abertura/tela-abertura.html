@@ -36,21 +36,24 @@
 
         <footer class="action-section">
             <button id="btn-start" class="start-btn">Começar</button>
+            <button id="btn-install" class="install-btn" hidden>📲 Instalar Fruta Viva</button>
+            <p id="install-hint" class="install-hint" hidden></p>
         </footer>
     </main>
-<script>
-    if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-            navigator.serviceWorker.register("../service-worker.js")
-                .then(() => {
-                    console.log("Fruta Viva: Service Worker ativo!");
-                })
-                .catch((erro) => {
-                    console.error("Erro no Service Worker:", erro);
-                });
-        });
-    }
-</script>
+
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../service-worker.js")
+                    .then(() => {
+                        console.log("Fruta Viva: Service Worker ativo!");
+                    })
+                    .catch((erro) => {
+                        console.error("Erro no Service Worker:", erro);
+                    });
+            });
+        }
+    </script>
     <script src="tela-abertura.js"></script>
 </body>
 
